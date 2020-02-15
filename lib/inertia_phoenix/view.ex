@@ -2,15 +2,11 @@ defmodule InertiaPhoenix.View do
   def render("inertia.html", assigns) do
     Phoenix.HTML.Tag.content_tag(:div, "", [
       {:id, "app"},
-      {:data, [page: page_data(assigns)]}
+      {:data, [page: page_json(assigns)]}
     ])
   end
 
-  def render("inertia.json", assigns) do
-    page_data(assigns)
-  end
-
-  defp page_data(%{conn: conn}) do
+  defp page_json(%{conn: conn}) do
     Jason.encode!(%{
       component: conn.assigns.component,
       props: conn.assigns.props,
