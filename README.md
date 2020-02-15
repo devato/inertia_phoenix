@@ -7,12 +7,30 @@
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `phoenertia` to your list of dependencies in `mix.exs`:
 
-```elixir
+```
 def deps do
   [
-    {:phoenertia, "~> 0.1.0"}
+    {:inertia_phoenix, "~> 0.1.0"}
   ]
 end
+```
+
+router.ex
+```
+  pipeline :browser do
+    ...
+    plug InertiaPhoenix.Plug
+  end
+```
+
+lib/active_web.ex
+```
+  def controller do
+    quote do
+      ...
+      import InertiaPhoenix.Controller, only: [render_inertia: 3]
+    end
+  end
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
