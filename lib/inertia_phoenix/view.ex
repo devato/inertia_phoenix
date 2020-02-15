@@ -6,9 +6,13 @@ defmodule InertiaPhoenix.View do
     ])
   end
 
+  def render("inertia.json", assigns) do
+    page_data(assigns)
+  end
+
   defp page_data(%{conn: conn}) do
     Jason.encode!(%{
-      component: conn.assigns.component,
+      component: "Home",
       props: conn.assigns.props,
       url: "/",
       version: "1.0"
