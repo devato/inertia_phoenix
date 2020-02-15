@@ -7,6 +7,7 @@ defmodule IntertiaPhoenix.MixProject do
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
+      compilers: [:phoenix] ++ Mix.compilers(),
       deps: deps(),
       description: description(),
       package: package()
@@ -23,8 +24,13 @@ defmodule IntertiaPhoenix.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:ex_doc, ">= 0.0.0"}
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:phoenix, "~> 1.3.0 or ~> 1.4.0"},
+      {:phoenix_html, ">= 2.0.0 and <= 3.0.0"},
+      {:plug, ">= 1.5.0 and < 2.0.0", optional: true},
+      {:credo, "~> 1.2.0", only: [:dev, :test]},
+      {:jason, "~> 1.0", only: [:dev, :test]}, # Credo requires jason to exist also in :dev
+      {:ex_doc, "~> 0.21.0", only: :dev},
+      {:plug_cowboy, "~> 2.1", only: [:test]},
     ]
   end
 
