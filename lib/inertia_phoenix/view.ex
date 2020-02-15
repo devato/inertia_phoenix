@@ -1,7 +1,9 @@
 defmodule InertiaPhoenix.View do
   @moduledoc false
+  alias Phoenix.HTML.Tag
+
   def render("inertia.html", assigns) do
-    Phoenix.HTML.Tag.content_tag(:div, "", [
+    Tag.content_tag(:div, "", [
       {:id, "app"},
       {:data, [page: page_json(assigns)]}
     ])

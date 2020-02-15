@@ -1,17 +1,18 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
+  alias Phoenix.Controller, as: PC
 
   def render_inertia(%{assigns: %{inertia_request: inertia_request}} = conn, component, assigns)
       when inertia_request == true do
-    Phoenix.Controller.json(conn, page_map(conn, component, assigns))
+    PC.json(conn, page_map(conn, component, assigns))
   end
 
   def render_inertia(conn, component, assigns) do
     assigns = [{:component, component} | assigns]
 
     conn
-    |> Phoenix.Controller.put_view(InertiaPhoenix.View)
-    |> Phoenix.Controller.render("inertia.html", assigns)
+    |> PC.put_view(InertiaPhoenix.View)
+    |> PC.render("inertia.html", assigns)
   end
 
   defp page_map(conn, component, assigns) do
