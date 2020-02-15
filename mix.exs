@@ -28,9 +28,10 @@ defmodule IntertiaPhoenix.MixProject do
       {:phoenix_html, ">= 2.0.0 and <= 3.0.0"},
       {:plug, ">= 1.5.0 and < 2.0.0", optional: true},
       {:credo, "~> 1.2.0", only: [:dev, :test]},
-      {:jason, "~> 1.0", only: [:dev, :test]}, # Credo requires jason to exist also in :dev
+      # Credo requires jason to exist also in :dev
+      {:jason, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.21.0", only: :dev},
-      {:plug_cowboy, "~> 2.1", only: [:test]},
+      {:plug_cowboy, "~> 2.1", only: [:test]}
     ]
   end
 
@@ -39,6 +40,7 @@ defmodule IntertiaPhoenix.MixProject do
     Library for using InertiaJS with Phoenix
     """
   end
+
   defp package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],

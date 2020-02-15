@@ -1,4 +1,5 @@
 defmodule InertiaPhoenix.View do
+  @moduledoc false
   def render("inertia.html", assigns) do
     Phoenix.HTML.Tag.content_tag(:div, "", [
       {:id, "app"},
