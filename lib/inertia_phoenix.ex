@@ -1,6 +1,6 @@
-defmodule IntertiaPhoenix do
+defmodule InertiaPhoenix do
   @moduledoc """
-  Documentation for `IntertiaPhoenix`.
+  Documentation for `InertiaPhoenix`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule IntertiaPhoenix do
 
   ## Examples
 
-      iex> IntertiaPhoenix.hello()
+      iex> InertiaPhoenix.hello()
       :world
 
   """
