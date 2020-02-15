@@ -5,7 +5,7 @@ defmodule InertiaPhoenix.MixProject do
     [
       app: :inertia_phoenix,
       version: "0.1.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
