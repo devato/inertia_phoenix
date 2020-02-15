@@ -1,8 +1,6 @@
 # Inertia Phoenix
 
-![CI](https://github.com/devato/inertia_phoenix/workflows/Test/badge.svg)
-
-
+Inertiajs Adapter for Elixir Phoenix
 
 ## Installation
 
