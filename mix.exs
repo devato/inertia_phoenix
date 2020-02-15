@@ -1,9 +1,9 @@
-defmodule Phoenertia.MixProject do
+defmodule IntertiaPhoenix.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenertia,
+      app: :inertia_phoenix,
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
@@ -23,7 +23,7 @@ defmodule Phoenertia.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, ">= 0.0.0"}
+      # {:ex_doc, ">= 0.0.0"}
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
