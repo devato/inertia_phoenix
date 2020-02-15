@@ -44,7 +44,7 @@ defmodule InertiaPhoenix.MixProject do
       maintainers: ["Troy Martin"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/devato/inertia_phoenix"},
-      files: ~w(lib LICENSE mix.exs README.md)
+      files: ~w(lib LICENSE.txt mix.exs README.md)
     ]
   end
 end
