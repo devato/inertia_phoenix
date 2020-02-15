@@ -9,7 +9,7 @@ defmodule IntertiaPhoenix.MixProject do
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
       deps: deps(),
-      description: description(),
+      description: "InertiaJS adapter for Elixir Phoenix",
       package: package()
     ]
   end
@@ -35,18 +35,15 @@ defmodule IntertiaPhoenix.MixProject do
     ]
   end
 
-  defp description do
-    """
-    Library for using InertiaJS with Phoenix
-    """
-  end
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   defp package do
     [
-      files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Troy Martin"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/kkempin/exiban"}
+      links: %{"GitHub" => "https://github.com/devato/inertia_phoenix"},
+      files: ~w(lib LICENSE mix.exs README.md)
     ]
   end
 end
