@@ -4,9 +4,6 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `phoenertia` to your list of dependencies in `mix.exs`:
-
 Add to mix.exs:
 ```
 {:inertia_phoenix, "~> 0.1.0"}
