@@ -12,9 +12,9 @@ defmodule InertiaPhoenix.View do
 
   defp page_data(%{conn: conn}) do
     Jason.encode!(%{
-      component: "Home",
+      component: conn.assigns.component,
       props: conn.assigns.props,
-      url: "/",
+      url: conn.request_path,
       version: "1.0"
     })
   end
