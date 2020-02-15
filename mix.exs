@@ -10,7 +10,7 @@ defmodule InertiaPhoenix.MixProject do
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
       deps: deps(),
-      description: "InertiaJS adapter for Elixir Phoenix",
+      description: "Inertiajs adapter for Elixir Phoenix",
       package: package()
     ]
   end
