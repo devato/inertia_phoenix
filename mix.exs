@@ -1,4 +1,4 @@
-defmodule IntertiaPhoenix.MixProject do
+defmodule InertiaPhoenix.MixProject do
   use Mix.Project
 
   def project do
@@ -6,6 +6,7 @@ defmodule IntertiaPhoenix.MixProject do
       app: :inertia_phoenix,
       version: "0.1.0",
       elixir: "~> 1.10",
+      elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
       deps: deps(),

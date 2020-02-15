@@ -1,38 +1,49 @@
-defmodule IntertiaPhoenix.ControllerTest do
+defmodule InertiaPhoenix.ControllerTest do
   use InertiaPhoenix.Test.ConnCase
-
   alias Plug.Conn
-  doctest InertiaPhoenix.Controller
+  alias InertiaPhoenix.Test.Endpoint
+  alias Phoenix.HTML.Tag
 
-  test "render_inertia/3",  %{conn: conn} do
-    result = InertiaPhoenix.Controller.render_inertia(conn, "Home", %{ props: %{hello: "world"}})
-    assert result == "<html></html>"
+  test "render_inertia/3 regular",  %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_private(:phoenix_action, :new)
+      |> Conn.put_private(:phoenix_endpoint, Endpoint)
+      |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
+
+    page_json = Jason.encode!(%{
+      component: "Home",
+      props: %{hello: "world"},
+      url: "/",
+      version: "1.0"
+    })
+
+    expected = Tag.content_tag(:div, "", [
+      {:id, "app"},
+      {:data, [page: page_json]}
+    ])
+
+    assert html = html_response(conn, 200)
+    assert html == Phoenix.HTML.safe_to_string(expected)
+  end
+
+  test "render_inertia/3 with x-inertia header", %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_private(:phoenix_action, :index)
+      |> Conn.put_private(:phoenix_endpoint, Endpoint)
+      |> InertiaPhoenix.Plug.call([])
+      |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
+
+    page_map = %{
+      "component" => "Home",
+      "props" =>  %{"hello" => "world"},
+      "url" => "/",
+      "version" => "1.0"
+    }
+
+    assert json = json_response(conn, 200)
+    assert json == page_map
   end
 end
-
-# defmodule Pow.Phoenix.ControllerTest do
-#   use Pow.Test.Phoenix.ConnCase
-#   alias Plug.Conn
-#   alias Pow.Phoenix.{Controller, LayoutView, SessionController, SessionView, ViewHelpers}
-#   alias Pow.Test.{Ecto.Users.User, Phoenix, Phoenix.Endpoint, Phoenix.Router}
-
-#   describe "action/3" do
-#     test "using `:web_module`", %{conn: conn} do
-#       conn =
-#         conn
-#         |> Conn.put_private(:pow_config, web_module: Phoenix, user: User)
-#         |> Conn.put_private(:phoenix_view, SessionView)
-#         |> Conn.put_private(:phoenix_router, Router)
-#         |> Conn.put_private(:phoenix_action, :new)
-#         |> Conn.put_private(:phoenix_endpoint, Endpoint)
-#         |> Conn.put_private(:phoenix_layout, {LayoutView, :app})
-#         |> Conn.assign(:action, "#")
-
-#       conn = ViewHelpers.layout(conn)
-#       conn = Controller.action(SessionController, conn, %{})
-
-#       assert html = html_response(conn, 200)
-#       assert html =~ ":web_module new session"
-#     end
-#   end
-# end

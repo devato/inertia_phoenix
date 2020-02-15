@@ -8,8 +8,8 @@ defmodule InertiaPhoenix.Plug do
     case get_req_header(conn, "x-inertia") do
       ["true"] ->
         conn
-        |> put_resp_header("Vary", "Accept")
-        |> put_resp_header("X-Inertia", "true")
+        |> put_resp_header("vary", "accept")
+        |> put_resp_header("x-inertia", "true")
         |> assign(:inertia_request, true)
 
       _ ->
