@@ -1,4 +1,4 @@
-# Phoenertia
+# Inertia Phoenix
 
 **TODO: Add description**
 
