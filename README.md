@@ -1,6 +1,8 @@
 # Inertia Phoenix
 
-**TODO: Add description**
+![CI](https://github.com/devato/inertia_phoenix/workflows/Test/badge.svg)
+
+
 
 ## Installation
 
