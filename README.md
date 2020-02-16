@@ -8,6 +8,7 @@ Inertiajs Adapter for Elixir Phoenix
 - Shared Data: https://inertiajs.com/shared-data
 - Add Config (layout, assets version, etc)
 - Add asset version handing
+- Finish pingcrm: https://github.com/devato/pingcrm
 
 ## Installation
 
