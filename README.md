@@ -24,7 +24,7 @@ Import render_inertia `lib/active_web.ex`
   def controller do
     quote do
       ...
-      import InertiaPhoenix.Controller, only: [render_inertia: 3]
+      import InertiaPhoenix.Controller
     end
   end
 ```
@@ -34,6 +34,10 @@ Import render_inertia `lib/active_web.ex`
 ```
 def index(conn, _params) do
   render_inertia(conn, "Home", props: %{hello: "world"})
+
+  # OR
+
+  render_inertia(conn, "Home")
 end
 ```
 
