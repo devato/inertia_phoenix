@@ -6,23 +6,41 @@ defmodule InertiaPhoenix.Controller do
 
   def render_inertia(%{assigns: %{inertia_request: inertia_request}} = conn, component, assigns)
       when inertia_request == true do
-    Controller.json(conn, page_map(conn, component, assigns))
+
+    assigns = assigns
+    |> assign_component(component)
+    |> assign_flash(Controller.get_flash(conn))
+
+    conn |> Controller.json(page_map(conn, assigns))
   end
 
   def render_inertia(conn, component, assigns) do
-    assigns = [{:component, component} | assigns]
+    assigns = assigns
+    |> assign_component(component)
+    |> assign_flash(Controller.get_flash(conn))
+
     conn
     |> Controller.put_view(InertiaPhoenix.View)
     |> Controller.render("inertia.html", assigns)
   end
 
-  defp page_map(conn, component, assigns) do
+  defp page_map(conn, assigns) do
     assigns_map = Enum.into(assigns, %{})
     %{
-      component: component,
+      component: assigns_map.component,
       props: assigns_map.props,
       url: conn.request_path,
-      version: "1.0"
+      version: "1.0" # TODO: add version
     }
+  end
+
+  defp assign_component(assigns, component) do
+    assigns = [{:component, component} | assigns]
+  end
+
+  defp assign_flash(assigns, flash) when map_size(flash) == 0, do: assigns
+
+  defp assign_flash(assigns, flash) do
+    assigns = put_in(assigns, [:props, :flash], flash)
   end
 end
