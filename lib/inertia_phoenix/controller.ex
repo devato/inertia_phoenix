@@ -11,7 +11,10 @@ defmodule InertiaPhoenix.Controller do
     |> assign_component(component)
     |> assign_flash(Controller.get_flash(conn))
 
-    conn |> Controller.json(page_map(conn, assigns))
+    conn
+    |> Controller.json(page_map(conn, assigns))
+    |> put_redirect_status
+
   end
 
   def render_inertia(conn, component, assigns) do
@@ -22,6 +25,7 @@ defmodule InertiaPhoenix.Controller do
     conn
     |> Controller.put_view(InertiaPhoenix.View)
     |> Controller.render("inertia.html", assigns)
+    |> put_redirect_status
   end
 
   defp page_map(conn, assigns) do
@@ -42,5 +46,12 @@ defmodule InertiaPhoenix.Controller do
 
   defp assign_flash(assigns, flash) do
     put_in(assigns, [:props, :flash], flash)
+  end
+
+  defp put_redirect_status(conn) do
+    IO.puts("=> status: ")
+    IO.inspect(conn.status)
+    IO.puts("\n")
+    conn
   end
 end
