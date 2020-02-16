@@ -35,12 +35,12 @@ defmodule InertiaPhoenix.Controller do
   end
 
   defp assign_component(assigns, component) do
-    assigns = [{:component, component} | assigns]
+    [{:component, component} | assigns]
   end
 
   defp assign_flash(assigns, flash) when map_size(flash) == 0, do: assigns
 
   defp assign_flash(assigns, flash) do
-    assigns = put_in(assigns, [:props, :flash], flash)
+    put_in(assigns, [:props, :flash], flash)
   end
 end
