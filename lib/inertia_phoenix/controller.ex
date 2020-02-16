@@ -30,7 +30,7 @@ defmodule InertiaPhoenix.Controller do
       component: assigns_map.component,
       props: assigns_map.props,
       url: conn.request_path,
-      version: "1.0" # TODO: add version
+      version: "1.0"
     }
   end
 
