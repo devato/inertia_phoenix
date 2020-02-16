@@ -11,9 +11,13 @@ defmodule InertiaPhoenix.Plug do
         |> put_resp_header("vary", "accept")
         |> put_resp_header("x-inertia", "true")
         |> assign(:inertia_request, true)
-
+        # # https://inertiajs.com/security#csrf-protection
+        |> put_resp_cookie("XSRF-TOKEN", Phoenix.Controller.get_csrf_token())
       _ ->
-        assign(conn, :inertia_request, false)
+        conn
+        |> assign(:inertia_request, false)
+        # # https://inertiajs.com/security#csrf-protection
+        |> put_resp_cookie("XSRF-TOKEN", Phoenix.Controller.get_csrf_token())
     end
   end
 end
