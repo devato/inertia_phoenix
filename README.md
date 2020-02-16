@@ -4,12 +4,6 @@
 
 Inertiajs Adapter for Elixir Phoenix
 
-## TODO
-- Shared Data: https://inertiajs.com/shared-data
-- Add Config (layout, assets version, etc)
-- Add asset version handing
-- Finish pingcrm: https://github.com/devato/pingcrm
-
 ## Installation
 
 Add to mix.exs:
@@ -42,3 +36,8 @@ def index(conn, _params) do
   render_inertia(conn, "Home", props: %{hello: "world"})
 end
 ```
+
+## Pingcrm Example (wip)
+
+https://github.com/devato/pingcrm
+
