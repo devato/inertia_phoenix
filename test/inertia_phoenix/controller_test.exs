@@ -1,17 +1,14 @@
 defmodule InertiaPhoenix.ControllerTest do
   use InertiaPhoenix.Test.ConnCase
   alias Plug.Conn
-  alias InertiaPhoenix.Test.Endpoint
   alias Phoenix.HTML.Tag
 
   test "render_inertia/2 no props", %{conn: conn} do
     conn =
       conn
-      |> Conn.put_private(:phoenix_action, :index)
-      |> Conn.put_private(:phoenix_endpoint, Endpoint)
-      |> InertiaPhoenix.Plug.call([])
+      |> fetch_session
+      |> fetch_flash
       |> InertiaPhoenix.Controller.render_inertia("Home")
-
     page_json = Jason.encode!(%{
       component: "Home",
       props: %{},
@@ -31,8 +28,8 @@ defmodule InertiaPhoenix.ControllerTest do
   test "render_inertia/3 regular",  %{conn: conn} do
     conn =
       conn
-      |> Conn.put_private(:phoenix_action, :new)
-      |> Conn.put_private(:phoenix_endpoint, Endpoint)
+      |> fetch_session
+      |> fetch_flash
       |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 
     page_json = Jason.encode!(%{
@@ -55,8 +52,8 @@ defmodule InertiaPhoenix.ControllerTest do
     conn =
       conn
       |> Conn.put_req_header("x-inertia", "true")
-      |> Conn.put_private(:phoenix_action, :index)
-      |> Conn.put_private(:phoenix_endpoint, Endpoint)
+      |> fetch_session
+      |> fetch_flash
       |> InertiaPhoenix.Plug.call([])
       |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 

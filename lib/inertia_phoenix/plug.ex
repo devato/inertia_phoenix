@@ -1,6 +1,7 @@
 defmodule InertiaPhoenix.Plug do
   @moduledoc false
   import Plug.Conn
+  alias Phoenix.Controller
 
   def init(default), do: default
 
@@ -16,16 +17,15 @@ defmodule InertiaPhoenix.Plug do
         |> put_resp_header("vary", "accept")
         |> put_resp_header("x-inertia", "true")
         |> assign(:inertia_request, true)
-        |> set_csrf_cookie
+        |> put_csrf_cookie
       _ ->
         conn
         |> assign(:inertia_request, false)
-        |> set_csrf_cookie
+        |> put_csrf_cookie
     end
   end
 
-  defp set_csrf_cookie(conn) do
-    conn |> put_resp_cookie("XSRF-TOKEN", Phoenix.Controller.get_csrf_token())
+  defp put_csrf_cookie(conn) do
+    conn |> put_resp_cookie("XSRF-TOKEN", Controller.get_csrf_token())
   end
-
 end
