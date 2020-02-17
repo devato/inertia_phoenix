@@ -24,7 +24,7 @@ Inertiajs Adapter for Elixir Phoenix
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.1.7"}
+{:inertia_phoenix, "~> 0.1.8"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
