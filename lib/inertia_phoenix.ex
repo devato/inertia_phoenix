@@ -3,5 +3,6 @@ defmodule InertiaPhoenix do
 
   def assets_version do
     Application.get_env(:inertia_phoenix, :assets_version, "1")
+    |> to_string
   end
 end

@@ -48,7 +48,7 @@ Add to `config/config.exs`
 
 ```
 config :inertia_phoenix,
-  assets_version: 1
+  assets_version: 1 # will be parsed to a string
 ```
 
 - Asset Versioning Docs: https://inertiajs.com/asset-versioning

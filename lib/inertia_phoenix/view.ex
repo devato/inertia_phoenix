@@ -1,5 +1,6 @@
 defmodule InertiaPhoenix.View do
   @moduledoc false
+  import InertiaPhoenix
   alias Phoenix.HTML.Tag
 
   def render("inertia.html", assigns) do
@@ -14,7 +15,7 @@ defmodule InertiaPhoenix.View do
       component: conn.assigns.component,
       props: conn.assigns.props,
       url: conn.request_path,
-      version: "1.0"
+      version: assets_version()
     })
   end
 end

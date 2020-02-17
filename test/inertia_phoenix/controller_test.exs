@@ -17,7 +17,7 @@ defmodule InertiaPhoenix.ControllerTest do
         component: "Home",
         props: %{},
         url: "/",
-        version: "1.0"
+        version: "1"
       })
 
     expected =
@@ -44,7 +44,7 @@ defmodule InertiaPhoenix.ControllerTest do
         component: "Home",
         props: %{hello: "world"},
         url: "/",
-        version: "1.0"
+        version: "1"
       })
 
     expected =
@@ -71,7 +71,7 @@ defmodule InertiaPhoenix.ControllerTest do
       "component" => "Home",
       "props" => %{"hello" => "world"},
       "url" => "/",
-      "version" => "1.0"
+      "version" => "1"
     }
 
     assert json = json_response(conn, 200)

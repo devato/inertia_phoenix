@@ -10,8 +10,8 @@ defmodule InertiaPhoenix.Plug do
     conn
     |> check_inertia_req
     |> put_csrf_cookie
-    |> check_assets_version
     |> check_redirect
+    |> check_assets_version
   end
 
   defp check_inertia_req(conn) do

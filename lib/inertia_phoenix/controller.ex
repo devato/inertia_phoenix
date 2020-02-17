@@ -1,5 +1,6 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
+  import InertiaPhoenix
   alias Phoenix.Controller
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
@@ -31,7 +32,7 @@ defmodule InertiaPhoenix.Controller do
       component: assigns_map.component,
       props: assigns_map.props,
       url: conn.request_path,
-      version: "1.0"
+      version: assets_version()
     }
   end
 
