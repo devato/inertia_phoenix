@@ -1,6 +1,7 @@
 # Inertia Phoenix
 
 ![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
+![Coveralls](https://img.shields.io/coveralls/github/devato/inertia_phoenix)
 
 Inertiajs Adapter for Elixir Phoenix
 

@@ -3,35 +3,27 @@ name: CI
 on: push
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
-    container:
-      image: elixir:1.10.1
-      env:
-        MIX_ENV: test
-        SECRET_KEY_BASE: test
-
+    name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
+    strategy:
+      matrix:
+        otp: [21.3.8.13, 22.2.6]
+        elixir: [1.9.4, 1.10.1]
+    env:
+      MIX_ENV: test
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-
-    - uses: actions/checkout@v2
-
-    - uses: actions/cache@v1
-      with:
-        path: deps
-        key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-        restore-keys: |
-          ${{ runner.os }}-mix-
-
-    - name: Install Dependencies
-      run: |
-        mix local.rebar --force
-        mix local.hex --force
-        mix deps.get
-
-    - name: Run Credo
-      run: mix credo
-
-    - name: Run tests
-      run: mix test
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: deps
+          key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
+      - uses: actions/setup-elixir@v1.0.0
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+      - run: mix deps.get
+      - run: mix coveralls.github
