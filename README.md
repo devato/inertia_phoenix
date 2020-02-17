@@ -67,6 +67,16 @@ def index(conn, _params) do
 end
 ```
 
+## Configure Axios
+
+`XSRF-TOKEN` cookie is set automatically.
+
+To configure axios to use it by default, in `app.js`
+```
+import axios from "axios";
+axios.defaults.xsrfHeaderName = "x-csrf-token";
+```
+
 ## Features
 
 - Render React/Vue/Svelte from controllers

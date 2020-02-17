@@ -10,8 +10,7 @@ defmodule InertiaPhoenix.Controller do
       |> assign_component(component)
       |> assign_flash(Controller.get_flash(conn))
 
-    conn
-    |> Controller.json(page_map(conn, assigns))
+    Controller.json(conn, page_map(conn, assigns))
   end
 
   def render_inertia(conn, component, assigns) do
