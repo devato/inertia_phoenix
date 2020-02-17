@@ -23,7 +23,7 @@ agree to abide by the devato [code of conduct](CODE_OF_CONDUCT.md).
 
     mix credo
 
-Push to your fork and submit a PR.
+Squash commits, push to your fork and submit a PR.
 
 At this point you're waiting on us. We like to at least comment on pull requests
 within three business days (and, typically, one business day). We may suggest
