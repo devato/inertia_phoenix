@@ -14,7 +14,6 @@ Inertiajs Adapter for Elixir Phoenix
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 ## Installation
 
 Add to mix.exs:
