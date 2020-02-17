@@ -29,7 +29,7 @@ defmodule InertiaPhoenix.Plug do
   end
 
   defp put_csrf_cookie(conn) do
-    conn |> put_resp_cookie("XSRF-TOKEN", Controller.get_csrf_token())
+    conn |> put_resp_cookie("XSRF-TOKEN", Controller.get_csrf_token(), http_only: false)
   end
 
   defp check_assets_version(conn) do
