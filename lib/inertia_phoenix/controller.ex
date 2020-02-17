@@ -49,9 +49,6 @@ defmodule InertiaPhoenix.Controller do
   end
 
   defp put_redirect_status(conn) do
-    IO.puts("=> status: ")
-    IO.inspect(conn.status)
-    IO.puts("\n")
     conn
   end
 end
