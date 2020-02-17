@@ -1,7 +1,7 @@
 # Contributing
 
 We love pull requests from everyone. By participating in this project, you
-agree to abide by the devato [code of conduct].
+agree to abide by the devato [code of conduct](CODE_OF_CONDUCT).
 
 ### Fork, then clone the repo:
 
