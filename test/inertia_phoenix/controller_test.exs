@@ -6,43 +6,52 @@ defmodule InertiaPhoenix.ControllerTest do
   test "render_inertia/2 no props", %{conn: conn} do
     conn =
       conn
+      |> Conn.put_req_header("x-inertia", "false")
+      |> Conn.put_req_header("x-inertia-version", "1")
       |> fetch_session
       |> fetch_flash
       |> InertiaPhoenix.Controller.render_inertia("Home")
-    page_json = Jason.encode!(%{
-      component: "Home",
-      props: %{},
-      url: "/",
-      version: "1.0"
-    })
 
-    expected = Tag.content_tag(:div, "", [
-      {:id, "app"},
-      {:data, [page: page_json]}
-    ])
+    page_json =
+      Jason.encode!(%{
+        component: "Home",
+        props: %{},
+        url: "/",
+        version: "1.0"
+      })
+
+    expected =
+      Tag.content_tag(:div, "", [
+        {:id, "app"},
+        {:data, [page: page_json]}
+      ])
 
     assert html = html_response(conn, 200)
     assert html == Phoenix.HTML.safe_to_string(expected)
   end
 
-  test "render_inertia/3 regular",  %{conn: conn} do
+  test "render_inertia/3 regular", %{conn: conn} do
     conn =
       conn
+      |> Conn.put_req_header("x-inertia", "false")
+      |> Conn.put_req_header("x-inertia-version", "1")
       |> fetch_session
       |> fetch_flash
       |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 
-    page_json = Jason.encode!(%{
-      component: "Home",
-      props: %{hello: "world"},
-      url: "/",
-      version: "1.0"
-    })
+    page_json =
+      Jason.encode!(%{
+        component: "Home",
+        props: %{hello: "world"},
+        url: "/",
+        version: "1.0"
+      })
 
-    expected = Tag.content_tag(:div, "", [
-      {:id, "app"},
-      {:data, [page: page_json]}
-    ])
+    expected =
+      Tag.content_tag(:div, "", [
+        {:id, "app"},
+        {:data, [page: page_json]}
+      ])
 
     assert html = html_response(conn, 200)
     assert html == Phoenix.HTML.safe_to_string(expected)
@@ -52,6 +61,7 @@ defmodule InertiaPhoenix.ControllerTest do
     conn =
       conn
       |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_req_header("x-inertia-version", "1")
       |> fetch_session
       |> fetch_flash
       |> InertiaPhoenix.Plug.call([])
@@ -59,12 +69,25 @@ defmodule InertiaPhoenix.ControllerTest do
 
     page_map = %{
       "component" => "Home",
-      "props" =>  %{"hello" => "world"},
+      "props" => %{"hello" => "world"},
       "url" => "/",
       "version" => "1.0"
     }
 
     assert json = json_response(conn, 200)
     assert json == page_map
+  end
+
+  test "render_inertia/3 with x-inertia-version mismatch", %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_req_header("x-inertia-version", "123")
+      |> fetch_session
+      |> fetch_flash
+      |> InertiaPhoenix.Plug.call([])
+      |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
+
+    assert html = html_response(conn, 409)
   end
 end

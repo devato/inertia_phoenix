@@ -13,14 +13,15 @@ defmodule InertiaPhoenix.Test.ConnCase do
   end
 
   @session Plug.Session.init(
-    store: :cookie,
-    key: "_inertia_phoenix",
-    encryption_salt: "yadayada",
-    signing_salt: "yadayada"
-  )
+             store: :cookie,
+             key: "_inertia_phoenix",
+             encryption_salt: "yadayada",
+             signing_salt: "yadayada"
+           )
 
   setup do
     session_data = %{}
+
     conn =
       Phoenix.ConnTest.build_conn()
       |> Map.put(:secret_key_base, String.duplicate("abcdefgh", 8))
