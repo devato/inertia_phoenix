@@ -53,6 +53,8 @@ config :inertia_phoenix,
 
 ## Render from Controller
 
+NOTE: Flash data is automatically passed through to the page props.
+
 ```
 def index(conn, _params) do
   render_inertia(conn, "Home", props: %{hello: "world"})

@@ -9,6 +9,7 @@ defmodule InertiaPhoenix.Plug do
   def call(conn, _) do
     conn
     |> check_inertia_req
+    |> put_csrf_cookie
     |> check_assets_version
   end
 
@@ -19,17 +20,15 @@ defmodule InertiaPhoenix.Plug do
         |> put_resp_header("vary", "accept")
         |> put_resp_header("x-inertia", "true")
         |> assign(:inertia_request, true)
-        |> put_csrf_cookie
 
       _ ->
         conn
         |> assign(:inertia_request, false)
-        |> put_csrf_cookie
     end
   end
 
   defp put_csrf_cookie(conn) do
-    conn |> put_resp_cookie("XSRF-TOKEN", Controller.get_csrf_token())
+    conn |> put_resp_cookie("XSRF-TOKEN", Controller.get_csrf_token(), http_only: false)
   end
 
   defp check_assets_version(conn) do
