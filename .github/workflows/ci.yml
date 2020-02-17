@@ -26,4 +26,5 @@ jobs:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
+      - run: mix credo --strict
       - run: mix coveralls.github
