@@ -53,12 +53,10 @@ defmodule InertiaPhoenix.Plug do
   def check_redirect(conn) do
     conn
     |> Plug.Conn.register_before_send(fn conn ->
-      case(conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302]) do
-        true ->
-          conn |> put_status(303)
-
-        _ ->
-          conn
+      if conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302] do
+        put_status(conn, 303)
+      else
+        conn
       end
     end)
   end
