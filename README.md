@@ -17,6 +17,7 @@ Inertiajs Adapter for Elixir Phoenix
 - [Features](#features)
 - [In Progress](#in-progress)
 - [Pingcrm Example (wip)](#pingcrm-example-wip)
+- [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
