@@ -33,6 +33,4 @@ Some things that will increase the chance that your pull request is accepted:
 
 * Write tests.
 * Run credo.
-* Write a [good commit message][commit].
-
-[commit]: http://tbaggery.com/200
+* Write a clear commit message.
