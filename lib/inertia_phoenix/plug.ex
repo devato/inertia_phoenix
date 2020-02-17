@@ -11,6 +11,7 @@ defmodule InertiaPhoenix.Plug do
     |> check_inertia_req
     |> put_csrf_cookie
     |> check_assets_version
+    |> check_redirect
   end
 
   defp check_inertia_req(conn) do
@@ -47,5 +48,18 @@ defmodule InertiaPhoenix.Plug do
     |> put_resp_content_type("text/html")
     |> put_status(:conflict)
     |> halt()
+  end
+
+  def check_redirect(conn) do
+    conn
+    |> Plug.Conn.register_before_send(fn conn ->
+      case(conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302]) do
+        true ->
+          conn |> put_status(303)
+
+        _ ->
+          conn
+      end
+    end)
   end
 end
