@@ -64,6 +64,20 @@ def index(conn, _params) do
 end
 ```
 
+## Features
+
+- Render React/Vue/Svelte from controllers
+- Flash data pass to props via Plug
+- Assets Versioning: https://inertiajs.com/asset-versioning
+- Auto put response cookie for crsf token: https://inertiajs.com/security#csrf-protection
+- Override redirect codes: https://inertiajs.com/redirects#303-response-code
+
+## In progress:
+
+- Documentation
+- Shared data interface: https://inertiajs.com/shared-data
+- Partial reloads: https://inertiajs.com/requests#partial-reloads
+
 ## Pingcrm Example (wip)
 
 https://github.com/devato/pingcrm
