@@ -4,8 +4,7 @@ defmodule InertiaPhoenix.Controller do
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
 
-  def render_inertia(%{assigns: %{inertia_request: inertia_request}} = conn, component, assigns)
-      when inertia_request == true do
+  def render_inertia(%{assigns: %{inertia_request: true}} = conn, component, assigns) do
     assigns =
       assigns
       |> assign_component(component)

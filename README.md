@@ -1,19 +1,21 @@
 # Inertia Phoenix
 
-![Tests](https://github.com/devato/inertia_phoenix/workflows/Tests/badge.svg)
+![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
 
 Inertiajs Adapter for Elixir Phoenix
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Render from Controller](#render-from-controller)
+- [Features](#features)
+- [In progress:](#in-progress)
 - [Pingcrm Example (wip)](#pingcrm-example-wip)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 ## Installation
 
@@ -64,6 +66,20 @@ def index(conn, _params) do
   render_inertia(conn, "Home")
 end
 ```
+
+## Features
+
+- Render React/Vue/Svelte from controllers
+- Flash data pass to props via Plug
+- Assets Versioning: https://inertiajs.com/asset-versioning
+- Auto put response cookie for crsf token: https://inertiajs.com/security#csrf-protection
+- Override redirect codes: https://inertiajs.com/redirects#303-response-code
+
+## In progress:
+
+- Documentation
+- Shared data interface: https://inertiajs.com/shared-data
+- Partial reloads: https://inertiajs.com/requests#partial-reloads
 
 ## Pingcrm Example (wip)
 
