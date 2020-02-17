@@ -12,6 +12,7 @@ jobs:
       env:
         MIX_ENV: test
         SECRET_KEY_BASE: test
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
 
@@ -29,8 +30,9 @@ jobs:
         mix local.rebar --force
         mix local.hex --force
         mix deps.get
-    - name: Run Tests
-      run: mix test
 
     - name: Run Credo
       run: mix credo
+
+    - name: Run tests/coveralls
+      run: mix coveralls.github
