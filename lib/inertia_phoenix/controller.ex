@@ -22,6 +22,7 @@ defmodule InertiaPhoenix.Controller do
 
     conn
     |> Controller.put_view(InertiaPhoenix.View)
+    |> Controller.put_layout(inertia_layout())
     |> Controller.render("inertia.html", assigns)
   end
 
