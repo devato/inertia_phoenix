@@ -8,6 +8,10 @@
 
 - Add config for layout [\#10](https://github.com/devato/inertia_phoenix/issues/10)
 
+**Merged pull requests:**
+
+- Partial reload [\#11](https://github.com/devato/inertia_phoenix/pull/11) ([bigx333](https://github.com/bigx333))
+
 ## [0.1.7](https://github.com/devato/inertia_phoenix/tree/0.1.7) (2020-02-17)
 
 [Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.6...0.1.7)
