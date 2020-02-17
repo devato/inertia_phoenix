@@ -1,20 +1,19 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-- [Inertia Phoenix](#inertia-phoenix)
-
-- [Inertia Phoenix](#inertia-phoenix)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-  - [Render from Controller](#render-from-controller)
-  - [Pingcrm Example (wip)](#pingcrm-example-wip)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Inertia Phoenix
 
 ![Tests](https://github.com/devato/inertia_phoenix/workflows/Tests/badge.svg)
 
 Inertiajs Adapter for Elixir Phoenix
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Render from Controller](#render-from-controller)
+- [Pingcrm Example (wip)](#pingcrm-example-wip)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ## Installation
 
