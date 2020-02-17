@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.7...HEAD)
+
+**Implemented enhancements:**
+
+- Add config for layout [\#10](https://github.com/devato/inertia_phoenix/issues/10)
+
+## [0.1.7](https://github.com/devato/inertia_phoenix/tree/0.1.7) (2020-02-17)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.6...0.1.7)
+
 ## [0.1.6](https://github.com/devato/inertia_phoenix/tree/0.1.6) (2020-02-17)
 
 [Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.5...0.1.6)

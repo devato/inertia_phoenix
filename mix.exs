@@ -4,12 +4,14 @@ defmodule InertiaPhoenix.MixProject do
   def project do
     [
       app: :inertia_phoenix,
-      version: "0.1.7",
+      version: "0.1.8",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       compilers: [:phoenix] ++ Mix.compilers(),
       deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
       description: "Inertiajs adapter for Elixir Phoenix",
       package: package()
     ]
@@ -32,7 +34,8 @@ defmodule InertiaPhoenix.MixProject do
       # Credo requires jason to exist also in :dev
       {:jason, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.21.0", only: :dev},
-      {:plug_cowboy, "~> 2.1", only: [:test]}
+      {:plug_cowboy, "~> 2.1", only: [:test]},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 

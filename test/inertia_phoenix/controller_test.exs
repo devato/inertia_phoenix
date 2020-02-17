@@ -105,4 +105,51 @@ defmodule InertiaPhoenix.ControllerTest do
 
     assert html = html_response(conn, 303)
   end
+
+  test "render_inertia/3 with x-inertia-partial-data", %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_req_header("x-inertia-version", "1")
+      |> Conn.put_req_header("x-inertia-partial-data", "hello,foo")
+      |> fetch_session
+      |> fetch_flash
+      |> InertiaPhoenix.Plug.call([])
+      |> InertiaPhoenix.Controller.render_inertia("Home",
+        props: %{hello: "world", world: "hello", foo: "bar"}
+      )
+
+    page_map = %{
+      "component" => "Home",
+      "props" => %{"hello" => "world", "foo" => "bar"},
+      "url" => "/",
+      "version" => "1"
+    }
+
+    assert json = json_response(conn, 200)
+    assert json == page_map
+  end
+
+  test "render_inertia/3 with lazy loaded prop", %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_req_header("x-inertia-version", "1")
+      |> fetch_session
+      |> fetch_flash
+      |> InertiaPhoenix.Plug.call([])
+      |> InertiaPhoenix.Controller.render_inertia("Home",
+        props: %{hello: fn -> "world" end, foo: "bar"}
+      )
+
+    page_map = %{
+      "component" => "Home",
+      "props" => %{"hello" => "world", "foo" => "bar"},
+      "url" => "/",
+      "version" => "1"
+    }
+
+    assert json = json_response(conn, 200)
+    assert json == page_map
+  end
 end

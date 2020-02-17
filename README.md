@@ -1,6 +1,7 @@
 # Inertia Phoenix
 
 ![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
+![Coveralls](https://img.shields.io/coveralls/github/devato/inertia_phoenix)
 
 Inertiajs Adapter for Elixir Phoenix
 
@@ -21,7 +22,7 @@ Inertiajs Adapter for Elixir Phoenix
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.1.6"}
+{:inertia_phoenix, "~> 0.1.7"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
