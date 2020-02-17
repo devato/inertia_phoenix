@@ -118,5 +118,5 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 ## Pingcrm Example (wip)
 
-https://github.com/devato/pingcrm
+- React Example: https://github.com/devato/pingcrm
 
