@@ -30,6 +30,7 @@ defmodule InertiaPhoenix.Test.ConnCase do
       |> Conn.put_private(:phoenix_action, :index)
       |> Conn.put_private(:phoenix_router, Router)
       |> Conn.put_private(:phoenix_endpoint, Endpoint)
+      |> Conn.put_private(:phoenix_layout, {InertiaPheonix.Test.LayoutView, "app.html"})
       |> InertiaPhoenix.Plug.call([])
 
     {:ok, conn: conn, session_data: session_data}

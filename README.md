@@ -21,7 +21,7 @@ Inertiajs Adapter for Elixir Phoenix
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.1.x"}
+{:inertia_phoenix, "~> 0.1.6"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -48,7 +48,8 @@ Add to `config/config.exs`
 
 ```
 config :inertia_phoenix,
-  assets_version: 1 # will be parsed to a string
+  assets_version: 1,          # default 1
+  inertia_layout: "app.html"  # default app.html
 ```
 
 - Asset Versioning Docs: https://inertiajs.com/asset-versioning
@@ -65,6 +66,26 @@ def index(conn, _params) do
 
   render_inertia(conn, "Home")
 end
+```
+
+## Layout/Templates
+
+- Doesn't require templates as Inertia Pages are templates.
+- `div#app` is rendered automatically.
+
+An example layout:
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    ...
+  </head>
+  <body>
+    <%= render @view_module, @view_template, assigns %>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
 ```
 
 ## Configure Axios
