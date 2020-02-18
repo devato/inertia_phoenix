@@ -3,11 +3,10 @@ defmodule InertiaPhoenix.Plug do
   import Plug.Conn
   import InertiaPhoenix
 
-  def init(inertia_shared), do: inertia_shared
+  def init(default), do: default
 
-  def call(conn, inertia_shared) do
+  def call(conn, _) do
     conn
-    |> assign(:inertia_shared, inertia_shared)
     |> check_inertia_req
   end
 

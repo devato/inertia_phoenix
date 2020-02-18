@@ -39,7 +39,7 @@ defmodule InertiaPhoenix.Controller do
     |> lazy_load()
     |> assign_component(component)
     |> assign_flash(Controller.get_flash(conn))
-    |> assign_inertia_shared(conn)
+    |> merge_inertia_shared(conn)
   end
 
   defp page_map(conn, assigns) do
@@ -95,10 +95,10 @@ defmodule InertiaPhoenix.Controller do
     )
   end
 
-  defp assign_inertia_shared(conn, assigns) do
-    IO.inspect(assigns)
-    conn
+  defp merge_inertia_shared(assigns, %{assigns: %{inertia_share: inertia_shared}}) do
+    Keyword.put(assigns, :props, Map.merge(assigns[:props], inertia_shared))
   end
+  defp merge_inertia_shared(assigns, conn), do: assigns
 
   defp put_csrf_cookie(conn) do
     put_resp_cookie(conn, "XSRF-TOKEN", Controller.get_csrf_token(), http_only: false)
