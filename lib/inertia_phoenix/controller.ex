@@ -33,6 +33,15 @@ defmodule InertiaPhoenix.Controller do
     |> Controller.render("inertia.html", assigns)
   end
 
+  defp build_assigns(conn, assigns, component) do
+    assigns
+    |> filter_partial_data(conn)
+    |> lazy_load()
+    |> assign_component(component)
+    |> assign_flash(Controller.get_flash(conn))
+    |> assign_inertia_shared(conn)
+  end
+
   defp page_map(conn, assigns) do
     assigns_map = Enum.into(assigns, %{})
 
@@ -86,12 +95,9 @@ defmodule InertiaPhoenix.Controller do
     )
   end
 
-  defp build_assigns(conn, assigns, component) do
-    assigns
-    |> filter_partial_data(conn)
-    |> lazy_load()
-    |> assign_component(component)
-    |> assign_flash(Controller.get_flash(conn))
+  defp assign_inertia_shared(conn, assigns) do
+    IO.inspect(assigns)
+    conn
   end
 
   defp put_csrf_cookie(conn) do
