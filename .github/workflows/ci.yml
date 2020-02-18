@@ -21,6 +21,7 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-mix-
+
       - uses: actions/setup-elixir@v1.0.0
         with:
           otp-version: ${{matrix.otp}}
