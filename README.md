@@ -164,8 +164,8 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 ## In Progress
 
-- Hex Documentation [https://github.com/devato/inertia_phoenix/issues/5](Issue #3)
-- Error Handling: https://inertiajs.com/error-handling [https://github.com/devato/inertia_phoenix/issues/5](Issue #5)
+- Hex Documentation: See [Issue #3](https://github.com/devato/inertia_phoenix/issues/5)
+- Error Handling: https://inertiajs.com/error-handling.  See [Issue #5](https://github.com/devato/inertia_phoenix/issues/5)
 
 # Example Apps
 
