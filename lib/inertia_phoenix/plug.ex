@@ -46,7 +46,7 @@ defmodule InertiaPhoenix.Plug do
     |> put_resp_header("x-inertia", "true")
     |> put_resp_header("x-inertia-location", request_url(conn))
     |> put_resp_content_type("text/html")
-    |> put_status(:conflict)
+    |> send_resp(:conflict, "")
     |> halt()
   end
 
