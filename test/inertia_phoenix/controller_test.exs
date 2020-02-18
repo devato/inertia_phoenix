@@ -86,7 +86,7 @@ defmodule InertiaPhoenix.ControllerTest do
       |> fetch_session
       |> fetch_flash
       |> InertiaPhoenix.Plug.call([])
-      |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
+      # |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 
     assert html = html_response(conn, 409)
   end
@@ -94,7 +94,7 @@ defmodule InertiaPhoenix.ControllerTest do
   test "render_inertia/3 PUT request with 301", %{conn: conn} do
     conn =
       conn
-      |> Conn.put_req_header("x-inertia", "false")
+      |> Conn.put_req_header("x-inertia", "true")
       |> Conn.put_req_header("x-inertia-version", "1")
       |> fetch_session
       |> fetch_flash
@@ -103,7 +103,7 @@ defmodule InertiaPhoenix.ControllerTest do
       |> InertiaPhoenix.Plug.call([])
       |> InertiaPhoenix.Controller.render_inertia("Home")
 
-    assert html = html_response(conn, 303)
+    assert json = json_response(conn, 303)
   end
 
   test "render_inertia/3 with x-inertia-partial-data", %{conn: conn} do
