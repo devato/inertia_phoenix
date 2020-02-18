@@ -1,11 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+## [0.2.0](https://github.com/devato/inertia_phoenix/tree/0.2.0) (2020-02-18)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.10...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.10...0.2.0)
 
 **Merged pull requests:**
 
+- Add shared props [\#15](https://github.com/devato/inertia_phoenix/pull/15) ([tmartin314](https://github.com/tmartin314))
 - Inertia headers should only be set on inertia responses [\#13](https://github.com/devato/inertia_phoenix/pull/13) ([bigx333](https://github.com/bigx333))
 
 ## [0.1.10](https://github.com/devato/inertia_phoenix/tree/0.1.10) (2020-02-18)
