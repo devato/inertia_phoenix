@@ -18,7 +18,11 @@ defmodule InertiaPhoenix.MixProject do
         "coveralls.html": :test
       ],
       description: "Inertiajs adapter for Elixir Phoenix",
-      package: package()
+      package: package(),
+      docs: [
+        main: "readme",
+        extras: ["README.md", "CHANGELOG.md"]
+      ]
     ]
   end
 
