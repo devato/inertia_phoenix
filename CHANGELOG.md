@@ -2,15 +2,20 @@
 
 ## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.8...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.9...HEAD)
+
+**Merged pull requests:**
+
+- Ensure response is sent when assets version is invalid [\#12](https://github.com/devato/inertia_phoenix/pull/12) ([totaltrash](https://github.com/totaltrash))
+- Partial reload [\#11](https://github.com/devato/inertia_phoenix/pull/11) ([bigx333](https://github.com/bigx333))
+
+## [0.1.9](https://github.com/devato/inertia_phoenix/tree/0.1.9) (2020-02-18)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.8...0.1.9)
 
 **Implemented enhancements:**
 
 - Add partial reloads [\#4](https://github.com/devato/inertia_phoenix/issues/4)
-
-**Merged pull requests:**
-
-- Partial reload [\#11](https://github.com/devato/inertia_phoenix/pull/11) ([bigx333](https://github.com/bigx333))
 
 ## [0.1.8](https://github.com/devato/inertia_phoenix/tree/0.1.8) (2020-02-17)
 
