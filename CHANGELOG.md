@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.9...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.10...HEAD)
+
+**Merged pull requests:**
+
+- Inertia headers should only be set on inertia responses [\#13](https://github.com/devato/inertia_phoenix/pull/13) ([bigx333](https://github.com/bigx333))
+
+## [0.1.10](https://github.com/devato/inertia_phoenix/tree/0.1.10) (2020-02-18)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.9...0.1.10)
 
 **Merged pull requests:**
 
