@@ -9,23 +9,32 @@ Inertiajs Adapter for Elixir Phoenix
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Render from Controller](#render-from-controller)
-- [Layout/Templates](#layouttemplates)
-- [Configure Axios](#configure-axios)
+
+- [Usage](#usage)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Render from Controller](#render-from-controller)
+  - [Layout/Templates](#layouttemplates)
+  - [Shared Data / Props](#shared-data--props)
+    - [Shared Data Custom Plug](#shared-data-custom-plug)
+  - [Configure Axios](#configure-axios)
 - [Features](#features)
-- [In Progress](#in-progress)
-- [Pingcrm Example (wip)](#pingcrm-example-wip)
+  - [Complete](#complete)
+  - [In Progress](#in-progress)
+- [Example Apps](#example-apps)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Usage
+
+Getting started with Inertia.js in a few steps.
 
 ## Installation
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.1.10"}
+{:inertia_phoenix, "~> 0.2.0"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -92,6 +101,46 @@ An example layout:
 </html>
 ```
 
+## Shared Data / Props
+
+More info about shared data: https://inertiajs.com/shared-data
+
+To share data as props:
+
+```
+# Accepts atoms, strings and functions
+InertiaPhoenix.share(conn, :foo, "bar")
+```
+
+### Shared Data Custom Plug
+
+For more complex data, you can create a custom plug.
+
+Here's an example from the PingCRM app:
+```
+defmodule PingWeb.Plugs.InertiaShare do
+
+  def init(default), do: default
+
+  def call(conn, _) do
+    InertiaPhoenix.share(conn, :auth, build_auth_map(conn))
+  end
+
+  defp build_auth_map(conn) do
+    # build complex auth map
+  end
+end
+```
+Then add it to any pipeline that makes sense in `myapp_web/router.ex`:
+
+```
+pipeline :browser do
+  ...
+  plug InertiaPhoenix.Plug
+  plug PingWeb.Plugs.InertiaShare
+end
+```
+
 ## Configure Axios
 
 `XSRF-TOKEN` cookie is set automatically.
@@ -102,26 +151,27 @@ import axios from "axios";
 axios.defaults.xsrfHeaderName = "x-csrf-token";
 ```
 
-## Features
+# Features
 
+## Complete
 - Render React/Vue/Svelte from controllers
 - Flash data pass to props via Plug
 - Assets Versioning: https://inertiajs.com/asset-versioning
 - Auto put response cookie for crsf token: https://inertiajs.com/security#csrf-protection
 - Override redirect codes: https://inertiajs.com/redirects#303-response-code
 - Partial reloads: https://inertiajs.com/requests#partial-reloads
+- Shared data interface: https://inertiajs.com/shared-data
 
 ## In Progress
 
-- Documentation
-- Shared data interface: https://inertiajs.com/shared-data
-- Plug tests
+- Hex Documentation [https://github.com/devato/inertia_phoenix/issues/5](Issue #3)
+- Error Handling: https://inertiajs.com/error-handling [https://github.com/devato/inertia_phoenix/issues/5](Issue #5)
 
-## Pingcrm Example (wip)
+# Example Apps
 
-- React Example: https://github.com/devato/pingcrm
+- React Example: https://github.com/devato/pingcrm (WIP)
 
-## Contributing
+# Contributing
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
 

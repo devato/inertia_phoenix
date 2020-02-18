@@ -1,14 +1,12 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
   import InertiaPhoenix
-
   import Plug.Conn,
     only: [
       get_req_header: 2,
       put_resp_header: 3,
       put_resp_cookie: 4
     ]
-
   alias Phoenix.Controller
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
@@ -31,6 +29,15 @@ defmodule InertiaPhoenix.Controller do
     |> Controller.put_layout(inertia_layout())
     |> put_csrf_cookie
     |> Controller.render("inertia.html", assigns)
+  end
+
+  defp build_assigns(conn, assigns, component) do
+    assigns
+    |> filter_partial_data(conn)
+    |> merge_shared_props(conn)
+    |> lazy_load()
+    |> assign_component(component)
+    |> assign_flash(Controller.get_flash(conn))
   end
 
   defp page_map(conn, assigns) do
@@ -67,8 +74,16 @@ defmodule InertiaPhoenix.Controller do
           :props,
           assigns[:props]
           |> Enum.filter(fn {k, _} -> Atom.to_string(k) in requested_props end)
+          |> Enum.into(%{})
         )
     end
+  end
+
+  defp merge_shared_props(assigns, conn) do
+    shared_props = conn.private[:inertia_phoenix_shared_props] || %{}
+    props = Map.merge(shared_props, assigns[:props])
+
+    Keyword.put(assigns, :props, props)
   end
 
   defp lazy_load(assigns) do
@@ -84,14 +99,6 @@ defmodule InertiaPhoenix.Controller do
       end)
       |> Enum.into(%{})
     )
-  end
-
-  defp build_assigns(conn, assigns, component) do
-    assigns
-    |> filter_partial_data(conn)
-    |> lazy_load()
-    |> assign_component(component)
-    |> assign_flash(Controller.get_flash(conn))
   end
 
   defp put_csrf_cookie(conn) do
