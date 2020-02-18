@@ -1,33 +1,35 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
   import InertiaPhoenix
-  import Plug.Conn, only: [get_req_header: 2]
+
+  import Plug.Conn,
+    only: [
+      get_req_header: 2,
+      put_resp_header: 3,
+      put_resp_cookie: 4
+    ]
+
   alias Phoenix.Controller
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
 
   def render_inertia(%{assigns: %{inertia_request: true}} = conn, component, assigns) do
-    assigns =
-      assigns
-      |> filter_partial_data(conn)
-      |> lazy_load()
-      |> assign_component(component)
-      |> assign_flash(Controller.get_flash(conn))
+    assigns = build_assigns(conn, assigns, component)
 
-    Controller.json(conn, page_map(conn, assigns))
+    conn
+    |> put_resp_header("vary", "accept")
+    |> put_resp_header("x-inertia", "true")
+    |> put_csrf_cookie
+    |> Controller.json(page_map(conn, assigns))
   end
 
   def render_inertia(conn, component, assigns) do
-    assigns =
-      assigns
-      |> filter_partial_data(conn)
-      |> lazy_load()
-      |> assign_component(component)
-      |> assign_flash(Controller.get_flash(conn))
+    assigns = build_assigns(conn, assigns, component)
 
     conn
     |> Controller.put_view(InertiaPhoenix.View)
     |> Controller.put_layout(inertia_layout())
+    |> put_csrf_cookie
     |> Controller.render("inertia.html", assigns)
   end
 
@@ -82,5 +84,17 @@ defmodule InertiaPhoenix.Controller do
       end)
       |> Enum.into(%{})
     )
+  end
+
+  defp build_assigns(conn, assigns, component) do
+    assigns
+    |> filter_partial_data(conn)
+    |> lazy_load()
+    |> assign_component(component)
+    |> assign_flash(Controller.get_flash(conn))
+  end
+
+  defp put_csrf_cookie(conn) do
+    put_resp_cookie(conn, "XSRF-TOKEN", Controller.get_csrf_token(), http_only: false)
   end
 end
