@@ -10,14 +10,18 @@ Inertiajs Adapter for Elixir Phoenix
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Render from Controller](#render-from-controller)
-- [Layout/Templates](#layouttemplates)
-- [Configure Axios](#configure-axios)
+- [Usage](#usage)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Render from Controller](#render-from-controller)
+  - [Layout/Templates](#layouttemplates)
+  - [Shared Data / Props](#shared-data--props)
+    - [Shared Data Custom Plug](#shared-data-custom-plug)
+  - [Configure Axios](#configure-axios)
 - [Features](#features)
-- [In Progress](#in-progress)
-- [Pingcrm Example (wip)](#pingcrm-example-wip)
+  - [Complete](#complete)
+  - [In Progress](#in-progress)
+- [Example Apps](#example-apps)
 - [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
