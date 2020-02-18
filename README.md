@@ -12,9 +12,12 @@ Inertiajs Adapter for Elixir Phoenix
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Render from Controller](#render-from-controller)
+- [Layout/Templates](#layouttemplates)
+- [Configure Axios](#configure-axios)
 - [Features](#features)
-- [In progress:](#in-progress)
+- [In Progress](#in-progress)
 - [Pingcrm Example (wip)](#pingcrm-example-wip)
+- [Contributing](#contributing)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -22,7 +25,7 @@ Inertiajs Adapter for Elixir Phoenix
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.1.7"}
+{:inertia_phoenix, "~> 0.1.9"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -106,14 +109,20 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 - Assets Versioning: https://inertiajs.com/asset-versioning
 - Auto put response cookie for crsf token: https://inertiajs.com/security#csrf-protection
 - Override redirect codes: https://inertiajs.com/redirects#303-response-code
+- Partial reloads: https://inertiajs.com/requests#partial-reloads
 
-## In progress:
+## In Progress
 
 - Documentation
 - Shared data interface: https://inertiajs.com/shared-data
-- Partial reloads: https://inertiajs.com/requests#partial-reloads
+- Plug tests
 
 ## Pingcrm Example (wip)
 
-https://github.com/devato/pingcrm
+- React Example: https://github.com/devato/pingcrm
+
+## Contributing
+
+[Contribution guidelines for this project](CONTRIBUTING.md)
+
 

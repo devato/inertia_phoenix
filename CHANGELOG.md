@@ -2,15 +2,23 @@
 
 ## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.7...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.8...HEAD)
 
 **Implemented enhancements:**
 
-- Add config for layout [\#10](https://github.com/devato/inertia_phoenix/issues/10)
+- Add partial reloads [\#4](https://github.com/devato/inertia_phoenix/issues/4)
 
 **Merged pull requests:**
 
 - Partial reload [\#11](https://github.com/devato/inertia_phoenix/pull/11) ([bigx333](https://github.com/bigx333))
+
+## [0.1.8](https://github.com/devato/inertia_phoenix/tree/0.1.8) (2020-02-17)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.7...0.1.8)
+
+**Implemented enhancements:**
+
+- Add config for layout [\#10](https://github.com/devato/inertia_phoenix/issues/10)
 
 ## [0.1.7](https://github.com/devato/inertia_phoenix/tree/0.1.7) (2020-02-17)
 

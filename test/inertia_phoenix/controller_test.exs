@@ -86,7 +86,6 @@ defmodule InertiaPhoenix.ControllerTest do
       |> fetch_session
       |> fetch_flash
       |> InertiaPhoenix.Plug.call([])
-      |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 
     assert html = html_response(conn, 409)
   end
