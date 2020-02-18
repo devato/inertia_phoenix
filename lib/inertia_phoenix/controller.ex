@@ -1,35 +1,35 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
   import InertiaPhoenix
-
-  import Plug.Conn,
-    only: [
-      get_req_header: 2,
-      put_resp_header: 3,
-      put_resp_cookie: 4
-    ]
-
+  import Plug.Conn, only: [get_req_header: 2]
   alias Phoenix.Controller
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
 
   def render_inertia(%{assigns: %{inertia_request: true}} = conn, component, assigns) do
-    assigns = build_assigns(conn, assigns, component)
+    assigns =
+      assigns
+      |> filter_partial_data(conn)
+      |> merge_shared_props(conn)
+      |> lazy_load()
+      |> assign_component(component)
+      |> assign_flash(Controller.get_flash(conn))
 
-    conn
-    |> put_resp_header("vary", "accept")
-    |> put_resp_header("x-inertia", "true")
-    |> put_csrf_cookie
-    |> Controller.json(page_map(conn, assigns))
+    Controller.json(conn, page_map(conn, assigns))
   end
 
   def render_inertia(conn, component, assigns) do
-    assigns = build_assigns(conn, assigns, component)
+    assigns =
+      assigns
+      |> filter_partial_data(conn)
+      |> merge_shared_props(conn)
+      |> lazy_load()
+      |> assign_component(component)
+      |> assign_flash(Controller.get_flash(conn))
 
     conn
     |> Controller.put_view(InertiaPhoenix.View)
     |> Controller.put_layout(inertia_layout())
-    |> put_csrf_cookie
     |> Controller.render("inertia.html", assigns)
   end
 
@@ -67,8 +67,16 @@ defmodule InertiaPhoenix.Controller do
           :props,
           assigns[:props]
           |> Enum.filter(fn {k, _} -> Atom.to_string(k) in requested_props end)
+          |> Enum.into(%{})
         )
     end
+  end
+
+  defp merge_shared_props(assigns, conn) do
+    shared_props = conn.private[:inertia_phoenix_shared_props] || %{}
+    props = Map.merge(shared_props, assigns[:props])
+
+    Keyword.put(assigns, :props, props)
   end
 
   defp lazy_load(assigns) do
@@ -84,17 +92,5 @@ defmodule InertiaPhoenix.Controller do
       end)
       |> Enum.into(%{})
     )
-  end
-
-  defp build_assigns(conn, assigns, component) do
-    assigns
-    |> filter_partial_data(conn)
-    |> lazy_load()
-    |> assign_component(component)
-    |> assign_flash(Controller.get_flash(conn))
-  end
-
-  defp put_csrf_cookie(conn) do
-    put_resp_cookie(conn, "XSRF-TOKEN", Controller.get_csrf_token(), http_only: false)
   end
 end
