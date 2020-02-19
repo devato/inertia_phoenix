@@ -108,7 +108,6 @@ More info about shared data: https://inertiajs.com/shared-data
 To share data as props:
 
 ```
-# Accepts atoms, strings and functions
 InertiaPhoenix.share(conn, :foo, "bar")
 ```
 
