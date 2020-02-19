@@ -42,13 +42,15 @@ defmodule InertiaPhoenix.Plug do
   end
 
   def check_redirect(conn) do
-    conn
-    |> register_before_send(fn conn ->
-      if conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302] do
-        put_status(conn, 303)
-      else
-        conn
+    register_before_send(
+      conn,
+      fn conn ->
+        if conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302] do
+          put_status(conn, 303)
+        else
+          conn
+        end
       end
-    end)
+    )
   end
 end

@@ -85,10 +85,19 @@ defmodule InertiaPhoenix.ControllerTest do
       |> Conn.put_req_header("x-inertia-version", "123")
       |> fetch_session
       |> fetch_flash
+      |> put_flash(:notice, "Inertia")
       |> InertiaPhoenix.Plug.call([])
-      # |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
+
+    # |> InertiaPhoenix.Controller.render_inertia("Home", props: %{hello: "world"})
 
     assert html = html_response(conn, 409)
+
+    conn =
+      get(conn, "/")
+      |> fetch_session
+      |> fetch_flash
+
+    assert get_flash(conn, :notice) == "Inertia"
   end
 
   test "render_inertia/3 PUT request with 301", %{conn: conn} do
@@ -111,6 +120,7 @@ defmodule InertiaPhoenix.ControllerTest do
       conn
       |> Conn.put_req_header("x-inertia", "true")
       |> Conn.put_req_header("x-inertia-version", "1")
+      |> Conn.put_req_header("x-inertia-partial-component", "Home")
       |> Conn.put_req_header("x-inertia-partial-data", "hello,foo")
       |> fetch_session
       |> fetch_flash
@@ -122,6 +132,32 @@ defmodule InertiaPhoenix.ControllerTest do
     page_map = %{
       "component" => "Home",
       "props" => %{"hello" => "world", "foo" => "bar"},
+      "url" => "/",
+      "version" => "1"
+    }
+
+    assert json = json_response(conn, 200)
+    assert json == page_map
+  end
+
+  test "render_inertia/3 with x-inertia-partial-data and mismatched x-inertia-partial-component",
+       %{conn: conn} do
+    conn =
+      conn
+      |> Conn.put_req_header("x-inertia", "true")
+      |> Conn.put_req_header("x-inertia-version", "1")
+      |> Conn.put_req_header("x-inertia-partial-component", "Dashboard")
+      |> Conn.put_req_header("x-inertia-partial-data", "hello,foo")
+      |> fetch_session
+      |> fetch_flash
+      |> InertiaPhoenix.Plug.call([])
+      |> InertiaPhoenix.Controller.render_inertia("Home",
+        props: %{hello: "world", world: "hello", foo: "bar"}
+      )
+
+    page_map = %{
+      "component" => "Home",
+      "props" => %{"hello" => "world", "world" => "hello", "foo" => "bar"},
       "url" => "/",
       "version" => "1"
     }
