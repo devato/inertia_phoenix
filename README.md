@@ -34,7 +34,7 @@ Getting started with Inertia.js in a few steps.
 
 Add to mix.exs:
 ```
-{:inertia_phoenix, "~> 0.2.0"}
+{:inertia_phoenix, "~> 0.2.1"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -108,7 +108,6 @@ More info about shared data: https://inertiajs.com/shared-data
 To share data as props:
 
 ```
-# Accepts atoms, strings and functions
 InertiaPhoenix.share(conn, :foo, "bar")
 ```
 
@@ -164,8 +163,8 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 ## In Progress
 
-- Hex Documentation [https://github.com/devato/inertia_phoenix/issues/5](Issue #3)
-- Error Handling: https://inertiajs.com/error-handling [https://github.com/devato/inertia_phoenix/issues/5](Issue #5)
+- Hex Documentation: See [Issue #3](https://github.com/devato/inertia_phoenix/issues/5)
+- Error Handling: https://inertiajs.com/error-handling.  See [Issue #5](https://github.com/devato/inertia_phoenix/issues/5)
 
 # Example Apps
 
