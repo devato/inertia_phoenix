@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.1...HEAD)
+
+**Merged pull requests:**
+
+- Add check for matching x-inertia-partial-component [\#18](https://github.com/devato/inertia_phoenix/pull/18) ([bigx333](https://github.com/bigx333))
+
+## [0.2.1](https://github.com/devato/inertia_phoenix/tree/0.2.1) (2020-02-19)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.0...0.2.1)
+
+**Implemented enhancements:**
+
+- Add shared-data for things like auth [\#1](https://github.com/devato/inertia_phoenix/issues/1)
+
 ## [0.2.0](https://github.com/devato/inertia_phoenix/tree/0.2.0) (2020-02-18)
 
 [Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.1.10...0.2.0)
