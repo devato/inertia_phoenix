@@ -1,12 +1,14 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
   import InertiaPhoenix
+
   import Plug.Conn,
     only: [
       get_req_header: 2,
       put_resp_header: 3,
       put_resp_cookie: 4
     ]
+
   alias Phoenix.Controller
 
   def render_inertia(conn, component, assigns \\ [props: %{}])
@@ -33,7 +35,7 @@ defmodule InertiaPhoenix.Controller do
 
   defp build_assigns(conn, assigns, component) do
     assigns
-    |> filter_partial_data(conn)
+    |> filter_partial_data(conn, component)
     |> merge_shared_props(conn)
     |> lazy_load()
     |> assign_component(component)
@@ -61,21 +63,21 @@ defmodule InertiaPhoenix.Controller do
     put_in(assigns, [:props, :flash], flash)
   end
 
-  defp filter_partial_data(assigns, conn) do
-    case get_req_header(conn, "x-inertia-partial-data") do
-      [] ->
-        assigns
+  defp filter_partial_data(assigns, conn, component) do
+    with [component_request] when component_request == component <-
+           get_req_header(conn, "x-inertia-partial-component"),
+         [partial_data] <- get_req_header(conn, "x-inertia-partial-data") do
+      requested_props = String.split(partial_data, ",")
 
-      [partial_data] ->
-        requested_props = String.split(partial_data, ",")
-
-        Keyword.put(
-          assigns,
-          :props,
-          assigns[:props]
-          |> Enum.filter(fn {k, _} -> Atom.to_string(k) in requested_props end)
-          |> Enum.into(%{})
-        )
+      Keyword.put(
+        assigns,
+        :props,
+        assigns[:props]
+        |> Enum.filter(fn {k, _} -> Atom.to_string(k) in requested_props end)
+        |> Enum.into(%{})
+      )
+    else
+      _ -> assigns
     end
   end
 
