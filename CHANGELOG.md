@@ -2,11 +2,20 @@
 
 ## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.1...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.2...HEAD)
 
 **Merged pull requests:**
 
+- Bump phoenix from 1.4.13 to 1.4.14 [\#20](https://github.com/devato/inertia_phoenix/pull/20) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Add check for matching x-inertia-partial-component [\#18](https://github.com/devato/inertia_phoenix/pull/18) ([bigx333](https://github.com/bigx333))
+
+## [0.2.2](https://github.com/devato/inertia_phoenix/tree/0.2.2) (2020-02-21)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.1...0.2.2)
+
+**Implemented enhancements:**
+
+- Add Error Handling Support [\#5](https://github.com/devato/inertia_phoenix/issues/5)
 
 ## [0.2.1](https://github.com/devato/inertia_phoenix/tree/0.2.1) (2020-02-19)
 
