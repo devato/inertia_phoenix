@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+## [0.2.3](https://github.com/devato/inertia_phoenix/tree/0.2.3) (2020-02-21)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.2...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.2...0.2.3)
 
 **Merged pull requests:**
 
