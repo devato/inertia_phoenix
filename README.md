@@ -139,8 +139,8 @@ Then add it to any pipeline that makes sense in `myapp_web/router.ex`:
 ```
 pipeline :browser do
   ...
+  plug PingWeb.Plugs.InertiaShare # put before main Plug
   plug InertiaPhoenix.Plug
-  plug PingWeb.Plugs.InertiaShare
 end
 ```
 ## Handle Form Errors
