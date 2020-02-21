@@ -103,13 +103,16 @@ An example layout:
 
 ## Shared Data / Props
 
-More info about shared data: https://inertiajs.com/shared-data
+Inertia.js Docs: https://inertiajs.com/shared-data
 
-To share data as props:
+To share data:
+```
+InertiaPhoenix.share(:hello, fn -> :world end)
+InertiaPhoenix.share(:foo, :baz)
+InertiaPhoenix.share("user", %{name: "José"})
+```
 
-```
-InertiaPhoenix.share(conn, :foo, "bar")
-```
+NOTE: `props` will overwrite shared data.
 
 ### Shared Data Custom Plug
 

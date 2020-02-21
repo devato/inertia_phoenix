@@ -84,7 +84,6 @@ defmodule InertiaPhoenix.Controller do
   defp merge_shared_props(assigns, conn) do
     shared_props = conn.private[:inertia_phoenix_shared_props] || %{}
     props = Map.merge(shared_props, assigns[:props])
-
     Keyword.put(assigns, :props, props)
   end
 
