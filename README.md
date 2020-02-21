@@ -17,6 +17,7 @@ Inertiajs Adapter for Elixir Phoenix
   - [Layout/Templates](#layouttemplates)
   - [Shared Data / Props](#shared-data--props)
     - [Shared Data Custom Plug](#shared-data-custom-plug)
+  - [Handle Form Errors](#handle-form-errors)
   - [Configure Axios](#configure-axios)
 - [Features](#features)
   - [Complete](#complete)
@@ -142,6 +143,13 @@ pipeline :browser do
   plug PingWeb.Plugs.InertiaShare
 end
 ```
+## Handle Form Errors
+
+We can use Shared Data and the Phoenix Session to store server side errors.
+
+See [PingCRM](https://github.com/devato/pingcrm) for examples.
+
+
 
 ## Configure Axios
 
