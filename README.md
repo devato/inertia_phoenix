@@ -35,7 +35,7 @@ Getting started with Inertia.js in a few steps.
 
 Add to mix.exs:
 ```elixir
-{:inertia_phoenix, "~> 0.2.1"}
+{:inertia_phoenix, "~> 0.2.4"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
