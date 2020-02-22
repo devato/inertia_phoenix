@@ -35,7 +35,7 @@ Getting started with Inertia.js in a few steps.
 
 Add to mix.exs:
 ```elixir
-{:inertia_phoenix, "~> 0.2.4"}
+{:inertia_phoenix, "~> 0.2.5"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -165,8 +165,9 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 ## Complete
 - Render React/Vue/Svelte from controllers
-- Flash data pass to props via Plug
+- Flash data passed to props via Plug
 - Assets Versioning: https://inertiajs.com/asset-versioning
+- Lazy Evaluation: https://inertiajs.com/responses#lazy-evaluation
 - Auto put response cookie for crsf token: https://inertiajs.com/security#csrf-protection
 - Override redirect codes: https://inertiajs.com/redirects#303-response-code
 - Partial reloads: https://inertiajs.com/requests#partial-reloads
@@ -174,8 +175,7 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 ## In Progress
 
-- Hex Documentation: See [Issue #3](https://github.com/devato/inertia_phoenix/issues/5)
-- Error Handling: https://inertiajs.com/error-handling.  See [Issue #5](https://github.com/devato/inertia_phoenix/issues/5)
+[See Issue Tracker](https://github.com/devato/inertia_phoenix/issues)
 
 # Example Apps
 
