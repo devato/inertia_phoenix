@@ -2,6 +2,11 @@ defmodule InertiaPhoenix.PageControllerTest do
   use InertiaPhoenix.ConnCase
   alias Phoenix.HTML.Tag
 
+  setup do
+    Logger.disable(self())
+    :ok
+  end
+
   test "GET / non-inertia no props", %{conn: conn} do
     conn =
       conn
@@ -79,6 +84,19 @@ defmodule InertiaPhoenix.PageControllerTest do
       |> put_req_header("x-inertia-version", "123")
       |> get("/")
 
+    assert get_flash(conn) == %{}
+    assert html = html_response(conn, 409)
+  end
+
+  test "GET / x-inertia-version mismatch forwards flash", %{conn: conn} do
+    conn =
+      conn
+      |> Plug.Test.init_test_session(%{"phoenix_flash" => %{error: "something went wrong"}})
+      |> put_req_header("x-inertia", "true")
+      |> put_req_header("x-inertia-version", "123")
+      |> get("/")
+
+    assert get_flash(conn) == %{error: "something went wrong"}
     assert html = html_response(conn, 409)
   end
 

@@ -11,7 +11,7 @@ defmodule InertiaPhoenix.TestWeb.Router do
   end
 
   scope "/", InertiaPhoenix.TestWeb do
-    pipe_through([:browser])
+    pipe_through(:browser)
 
     get("/", PageController, :index)
     put("/", PageController, :index)
