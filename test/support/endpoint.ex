@@ -6,7 +6,7 @@ defmodule InertiaPhoenix.TestWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_ping_key",
+    key: "_inertia_phoenix_key",
     signing_salt: "yKZ6VvPl"
   ]
 
