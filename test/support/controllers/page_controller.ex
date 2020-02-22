@@ -1,7 +1,7 @@
 defmodule InertiaPhoenix.TestWeb.PageController do
-  use Phoenix.Controller
+  use InertiaPhoenix.TestWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render_inertia(conn, "Home")
   end
 end

@@ -6,13 +6,13 @@ defmodule InertiaPhoenix.TestWeb.Router do
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
-    plug(:put_secure_browser_headers)
+    plug(:put_layout, {InertiaPhoenix.TestWeb.LayoutView, :app})
     plug(InertiaPhoenix.Plug)
   end
 
   scope "/", InertiaPhoenix.TestWeb do
     pipe_through([:browser])
 
-    get("/", PageController, :new, as: :login)
+    get("/", PageController, :index, as: :home)
   end
 end
