@@ -1,8 +1,6 @@
 defmodule InertiaPhoenix.TestWeb.Router do
   use Phoenix.Router
 
-  # import InertiaPhoenix.TestWeb.RouterHelper
-
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
