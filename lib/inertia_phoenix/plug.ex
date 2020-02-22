@@ -53,7 +53,8 @@ defmodule InertiaPhoenix.Plug do
     end)
   end
 
-  defp maybe_forward_flash(%{private: %{phoenix_flash: flash}} = conn) when map_size(flash) > 0 do
+  defp maybe_forward_flash(%{private: %{phoenix_flash: flash}} = conn)
+       when is_map(flash) and map_size(flash) > 0 do
     put_session(conn, "phoenix_flash", flash)
   end
 
