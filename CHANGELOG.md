@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.4](https://github.com/devato/inertia_phoenix/tree/0.2.4) (2020-02-22)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.3...0.2.4)
+
+**Merged pull requests:**
+
+- Feature/refactor tests [\#23](https://github.com/devato/inertia_phoenix/pull/23) ([tmartin314](https://github.com/tmartin314))
+- Fix Hex.pm link in README [\#22](https://github.com/devato/inertia_phoenix/pull/22) ([szTheory](https://github.com/szTheory))
+- Add syntax highlighting to README for Github [\#21](https://github.com/devato/inertia_phoenix/pull/21) ([szTheory](https://github.com/szTheory))
+
 ## [0.2.3](https://github.com/devato/inertia_phoenix/tree/0.2.3) (2020-02-21)
 
 [Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.2...0.2.3)
