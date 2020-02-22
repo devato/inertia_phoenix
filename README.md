@@ -34,12 +34,12 @@ Getting started with Inertia.js in a few steps.
 ## Installation
 
 Add to mix.exs:
-```
+```elixir
 {:inertia_phoenix, "~> 0.2.1"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
-```
+```elixir
   pipeline :browser do
     ...
     plug InertiaPhoenix.Plug
@@ -47,7 +47,7 @@ Add Plug to `WEB_PATH/router.ex`
 ```
 
 Import render_inertia `lib/active_web.ex`
-```
+```elixir
   def controller do
     quote do
       ...
@@ -60,7 +60,7 @@ Import render_inertia `lib/active_web.ex`
 
 Add to `config/config.exs`
 
-```
+```elixir
 config :inertia_phoenix,
   assets_version: 1,          # default 1
   inertia_layout: "app.html"  # default app.html
@@ -72,7 +72,7 @@ config :inertia_phoenix,
 
 NOTE: Flash data is automatically passed through to the page props.
 
-```
+```elixir
 def index(conn, _params) do
   render_inertia(conn, "Home", props: %{hello: "world"})
 
@@ -89,7 +89,7 @@ end
 
 An example layout:
 
-```
+```eex
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -107,7 +107,7 @@ An example layout:
 Inertia.js Docs: https://inertiajs.com/shared-data
 
 To share data:
-```
+```elixir
 InertiaPhoenix.share(:hello, fn -> :world end)
 InertiaPhoenix.share(:foo, :baz)
 InertiaPhoenix.share("user", %{name: "José"})
@@ -120,7 +120,7 @@ NOTE: `props` will overwrite shared data.
 For more complex data, you can create a custom plug.
 
 Here's an example from the PingCRM app:
-```
+```elixir
 defmodule PingWeb.Plugs.InertiaShare do
 
   def init(default), do: default
@@ -136,7 +136,7 @@ end
 ```
 Then add it to any pipeline that makes sense in `myapp_web/router.ex`:
 
-```
+```elixir
 pipeline :browser do
   ...
   plug PingWeb.Plugs.InertiaShare # put before main Plug
@@ -156,7 +156,7 @@ See [PingCRM](https://github.com/devato/pingcrm) for examples.
 `XSRF-TOKEN` cookie is set automatically.
 
 To configure axios to use it by default, in `app.js`
-```
+```javascript
 import axios from "axios";
 axios.defaults.xsrfHeaderName = "x-csrf-token";
 ```
