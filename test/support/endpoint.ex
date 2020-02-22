@@ -16,6 +16,7 @@ defmodule InertiaPhoenix.TestWeb.Endpoint do
     json_decoder: Phoenix.json_library()
   )
 
+  plug(Plug.RequestId)
   plug(Plug.MethodOverride)
   plug(Plug.Head)
   plug(Plug.Session, @session_options)
