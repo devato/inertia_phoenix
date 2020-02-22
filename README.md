@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
 [![Coverage](https://coveralls.io/repos/github/devato/inertia_phoenix/badge.svg?branch=develop)](https://coveralls.io/github/devato/inertia_phoenix?branch=develop)
-![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)
+[![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
 Inertiajs Adapter for Elixir Phoenix
 
