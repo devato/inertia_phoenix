@@ -8,6 +8,7 @@ defmodule InertiaPhoenix.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       alias Router.Helpers, as: Routes
+
       @endpoint Endpoint
     end
   end

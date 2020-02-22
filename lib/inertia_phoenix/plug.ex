@@ -37,11 +37,12 @@ defmodule InertiaPhoenix.Plug do
     |> put_resp_header("x-inertia", "true")
     |> put_resp_header("x-inertia-location", request_url(conn))
     |> put_resp_content_type("text/html")
+    |> maybe_forward_flash()
     |> send_resp(:conflict, "")
     |> halt()
   end
 
-  def check_redirect(conn) do
+  defp check_redirect(conn) do
     conn
     |> register_before_send(fn conn ->
       if conn.method in ["PUT", "PATCH", "DELETE"] and conn.status in [301, 302] do
@@ -51,4 +52,10 @@ defmodule InertiaPhoenix.Plug do
       end
     end)
   end
+
+  defp maybe_forward_flash(%{private: %{phoenix_flash: flash}} = conn) when map_size(flash) > 0 do
+    put_session(conn, "phoenix_flash", flash)
+  end
+
+  defp maybe_forward_flash(conn), do: conn
 end

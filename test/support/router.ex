@@ -1,6 +1,8 @@
 defmodule InertiaPhoenix.TestWeb.Router do
   use Phoenix.Router
 
+  # import InertiaPhoenix.TestWeb.RouterHelper
+
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
@@ -11,7 +13,7 @@ defmodule InertiaPhoenix.TestWeb.Router do
   end
 
   scope "/", InertiaPhoenix.TestWeb do
-    pipe_through([:browser])
+    pipe_through(:browser)
 
     get("/", PageController, :index)
     put("/", PageController, :index)
