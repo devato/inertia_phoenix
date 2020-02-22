@@ -1,4 +1,4 @@
-defmodule InertiaPhoenix.Test.Endpoint do
+defmodule InertiaPhoenix.TestWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :inertia_phoenix
 
   # The session will be stored in the cookie and signed,
@@ -6,8 +6,8 @@ defmodule InertiaPhoenix.Test.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_active_key",
-    signing_salt: "FWUx1ByX"
+    key: "_inertia_phoenix_key",
+    signing_salt: "yKZ6VvPl"
   ]
 
   plug(Plug.RequestId)
@@ -22,4 +22,5 @@ defmodule InertiaPhoenix.Test.Endpoint do
   plug(Plug.MethodOverride)
   plug(Plug.Head)
   plug(Plug.Session, @session_options)
+  plug(InertiaPhoenix.TestWeb.Router)
 end
