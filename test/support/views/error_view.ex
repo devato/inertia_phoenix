@@ -1,6 +1,6 @@
 defmodule InertiaPhoenix.TestWeb.ErrorView do
   @moduledoc false
-  def render("500.html", _assigns), do: "500.html"
-  def render("400.html", _assigns), do: "400.html"
-  def render("404.html", _assigns), do: "404.html"
+  def render("500.html", _assigns), do: "Internal Server Error"
+  def render("400.html", _assigns), do: "Bad Request"
+  def render("404.html", _assigns), do: "Not Found"
 end
