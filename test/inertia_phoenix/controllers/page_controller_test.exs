@@ -98,6 +98,16 @@ defmodule InertiaPhoenix.PageControllerTest do
 
     assert get_flash(conn) == %{error: "something went wrong"}
     assert html = html_response(conn, 409)
+
+    conn =
+      conn
+      |> recycle()
+      |> Plug.Test.init_test_session(%{})
+      |> put_req_header("x-inertia", "false")
+      |> get("/")
+
+    assert get_flash(conn) == %{error: "something went wrong"}
+    assert html = html_response(conn, 200)
   end
 
   test "PUT / with 301", %{conn: conn} do
