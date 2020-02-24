@@ -20,4 +20,12 @@ defmodule InertiaPhoenix do
     Application.get_env(:inertia_phoenix, :inertia_layout, "app.html")
     |> to_string
   end
+
+  def path_with_params(%{request_path: request_path, query_string: ""}), do: request_path
+
+  def path_with_params(%{request_path: request_path, query_string: query_string}) do
+    request_path <> "?" <> query_string
+  end
+
+  def path_with_params(%{request_path: request_path}), do: request_path
 end
