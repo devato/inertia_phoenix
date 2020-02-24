@@ -1,11 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+## [0.2.7](https://github.com/devato/inertia_phoenix/tree/0.2.7) (2020-02-24)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.6...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.6...0.2.7)
 
 **Merged pull requests:**
 
+- Add query params to response [\#27](https://github.com/devato/inertia_phoenix/pull/27) ([tmartin314](https://github.com/tmartin314))
 - Fix re-flash on 409 [\#26](https://github.com/devato/inertia_phoenix/pull/26) ([bigx333](https://github.com/bigx333))
 - Forward flash on 409 Conflict [\#24](https://github.com/devato/inertia_phoenix/pull/24) ([tmartin314](https://github.com/tmartin314))
 
