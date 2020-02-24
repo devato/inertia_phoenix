@@ -204,4 +204,29 @@ defmodule InertiaPhoenix.PageControllerTest do
     assert json = json_response(conn, 200)
     assert json == page_map
   end
+
+  test "GET / with query params", %{conn: conn} do
+    conn =
+      conn
+      |> put_req_header("x-inertia", "false")
+      |> put_req_header("x-inertia-version", "1")
+      |> get("/?search=dog")
+
+    page_json =
+      Jason.encode!(%{
+        component: "Home",
+        props: %{},
+        url: "/?search=dog",
+        version: "1"
+      })
+
+    expected =
+      Tag.content_tag(:div, "", [
+        {:id, "app"},
+        {:data, [page: page_json]}
+      ])
+
+    assert html = html_response(conn, 200)
+    assert html == Phoenix.HTML.safe_to_string(expected)
+  end
 end
