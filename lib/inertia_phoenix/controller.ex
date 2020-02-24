@@ -48,7 +48,7 @@ defmodule InertiaPhoenix.Controller do
     %{
       component: assigns_map.component,
       props: assigns_map.props,
-      url: conn.request_path,
+      url: path_with_params(conn),
       version: assets_version()
     }
   end

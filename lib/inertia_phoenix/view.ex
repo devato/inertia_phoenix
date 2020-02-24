@@ -14,7 +14,7 @@ defmodule InertiaPhoenix.View do
     Jason.encode!(%{
       component: conn.assigns.component,
       props: conn.assigns.props,
-      url: conn.request_path,
+      url: path_with_params(conn),
       version: assets_version()
     })
   end
