@@ -1,6 +1,6 @@
 # Inertia Phoenix
 
-![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
 ![Coveralls](https://img.shields.io/coveralls/github/devato/inertia_phoenix)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
