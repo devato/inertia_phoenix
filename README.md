@@ -9,7 +9,6 @@ Inertiajs Adapter for Elixir Phoenix
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Usage](#usage)
   - [Installation](#installation)
   - [Configuration](#configuration)
