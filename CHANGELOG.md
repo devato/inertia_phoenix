@@ -2,11 +2,20 @@
 
 ## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
 
-[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.5...HEAD)
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.6...HEAD)
 
 **Merged pull requests:**
 
+- Fix re-flash on 409 [\#26](https://github.com/devato/inertia_phoenix/pull/26) ([bigx333](https://github.com/bigx333))
 - Forward flash on 409 Conflict [\#24](https://github.com/devato/inertia_phoenix/pull/24) ([tmartin314](https://github.com/tmartin314))
+
+## [0.2.6](https://github.com/devato/inertia_phoenix/tree/0.2.6) (2020-02-24)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.5...0.2.6)
+
+**Closed issues:**
+
+- Only 1 flash per type is included in page data [\#25](https://github.com/devato/inertia_phoenix/issues/25)
 
 ## [0.2.5](https://github.com/devato/inertia_phoenix/tree/0.2.5) (2020-02-22)
 
