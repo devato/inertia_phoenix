@@ -38,7 +38,7 @@ defmodule InertiaPhoenix.MixProject do
       {:credo, "~> 1.3.1", only: [:dev, :test]},
       # Credo requires jason to exist also in :dev
       {:jason, "~> 1.0", only: [:dev, :test]},
-      {:ex_doc, "~> 0.21.0", only: :dev},
+      {:ex_doc, "~> 0.22.0", only: :dev},
       {:plug_cowboy, "~> 2.1", only: [:test]},
       {:excoveralls, "~> 0.10", only: :test}
     ]
