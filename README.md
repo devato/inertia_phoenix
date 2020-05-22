@@ -4,7 +4,7 @@
 ![Coveralls](https://img.shields.io/coveralls/github/devato/inertia_phoenix)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
-Inertiajs Adapter for Elixir Phoenix
+Inertiajs Adapter for Elixir Phoenix 1.4 and 1.5
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
