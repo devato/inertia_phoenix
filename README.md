@@ -183,5 +183,3 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 # Contributing
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
-
-
