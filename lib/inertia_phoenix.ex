@@ -2,6 +2,7 @@ defmodule InertiaPhoenix do
   @moduledoc File.read!("README.md")
   import Plug.Conn
 
+  @doc "share()"
   def share(%Plug.Conn{} = conn, key, val) do
     shared_props =
       conn.private
