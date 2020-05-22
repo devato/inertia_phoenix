@@ -4,7 +4,7 @@ defmodule InertiaPhoenix.MixProject do
   def project do
     [
       app: :inertia_phoenix,
-      version: "0.2.8",
+      version: "0.3.0",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
