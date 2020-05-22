@@ -1,14 +1,13 @@
 # Inertia Phoenix
 
-![CI](https://github.com/devato/inertia_phoenix/workflows/CI/badge.svg)
-[![Coverage](https://coveralls.io/repos/github/devato/inertia_phoenix/badge.svg?branch=develop)](https://coveralls.io/github/devato/inertia_phoenix?branch=develop)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
+![Coveralls](https://img.shields.io/coveralls/github/devato/inertia_phoenix)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
 Inertiajs Adapter for Elixir Phoenix
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Usage](#usage)
   - [Installation](#installation)
@@ -96,7 +95,7 @@ An example layout:
     ...
   </head>
   <body>
-    <%= render @view_module, @view_template, assigns %>
+    <%= @inner_content %>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

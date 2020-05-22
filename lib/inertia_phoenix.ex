@@ -1,5 +1,5 @@
 defmodule InertiaPhoenix do
-  @moduledoc false
+  @moduledoc File.read!("README.md")
   import Plug.Conn
 
   def share(%Plug.Conn{} = conn, key, val) do
