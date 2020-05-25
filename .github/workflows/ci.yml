@@ -24,10 +24,6 @@ jobs:
       - run: mix credo --strict
       - run: mix coveralls.json
 
-  codacy-coverage-reporter:
-    runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
-    steps:
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
