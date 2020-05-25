@@ -22,11 +22,4 @@ jobs:
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix credo --strict
-      - run: mix coveralls.json
-
-      - uses: actions/checkout@master
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@master
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: cover/excoveralls.json
+      - run: mix coveralls.github
