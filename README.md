@@ -1,6 +1,6 @@
 # Inertia Phoenix
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
+![Tests](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
 ![Coverage](https://img.shields.io/coveralls/github/devato/inertia_phoenix/master)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
