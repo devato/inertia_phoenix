@@ -1,5 +1,19 @@
 # Changelog
 
+## [Unreleased](https://github.com/devato/inertia_phoenix/tree/HEAD)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.3.1...HEAD)
+
+**Merged pull requests:**
+
+- Bump excoveralls from 0.12.3 to 0.13.1 [\#61](https://github.com/devato/inertia_phoenix/pull/61) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump doctor from 0.13.0 to 0.15.0 [\#58](https://github.com/devato/inertia_phoenix/pull/58) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Add a Codacy badge to README.md [\#51](https://github.com/devato/inertia_phoenix/pull/51) ([codacy-badger](https://github.com/codacy-badger))
+
+## [0.3.1](https://github.com/devato/inertia_phoenix/tree/0.3.1) (2020-07-25)
+
+[Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.3.0...0.3.1)
+
 ## [0.3.0](https://github.com/devato/inertia_phoenix/tree/0.3.0) (2020-05-22)
 
 [Full Changelog](https://github.com/devato/inertia_phoenix/compare/0.2.7...0.3.0)
@@ -63,6 +77,7 @@
 
 - Bump phoenix from 1.4.13 to 1.4.14 [\#20](https://github.com/devato/inertia_phoenix/pull/20) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Add check for matching x-inertia-partial-component [\#18](https://github.com/devato/inertia_phoenix/pull/18) ([bigx333](https://github.com/bigx333))
+- Fix CSRF cookie [\#7](https://github.com/devato/inertia_phoenix/pull/7) ([bigx333](https://github.com/bigx333))
 
 ## [0.2.2](https://github.com/devato/inertia_phoenix/tree/0.2.2) (2020-02-21)
 
@@ -142,10 +157,6 @@
 **Closed issues:**
 
 - Haha, I was looking for this last week [\#6](https://github.com/devato/inertia_phoenix/issues/6)
-
-**Merged pull requests:**
-
-- Fix CSRF cookie [\#7](https://github.com/devato/inertia_phoenix/pull/7) ([bigx333](https://github.com/bigx333))
 
 ## [0.1.3](https://github.com/devato/inertia_phoenix/tree/0.1.3) (2020-02-17)
 
