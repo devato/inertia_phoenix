@@ -4,7 +4,7 @@ defmodule InertiaPhoenix.MixProject do
   def project do
     [
       app: :inertia_phoenix,
-      version: "0.3.0",
+      version: "0.3.1",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,8 @@ defmodule InertiaPhoenix.MixProject do
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
-        "coveralls.html": :test
+        "coveralls.html": :test,
+        "coveralls.json": :test
       ],
       description: "Inertiajs adapter for Elixir Phoenix",
       package: package()
@@ -41,7 +42,7 @@ defmodule InertiaPhoenix.MixProject do
       {:ex_doc, "~> 0.22.1", only: :dev},
       {:plug_cowboy, "~> 2.1", only: [:test]},
       {:excoveralls, "~> 0.10", only: :test},
-      {:doctor, "~> 0.13.0"}
+      {:doctor, "~> 0.15.0"}
     ]
   end
 
