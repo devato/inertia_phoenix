@@ -1,6 +1,6 @@
 # Inertia Phoenix
 
-![Maintained by Devato](https://devato.com)
+[Maintained by Devato](https://devato.com)
 
 ![Tests](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
 ![Coverage](https://img.shields.io/coveralls/github/devato/inertia_phoenix/master)
