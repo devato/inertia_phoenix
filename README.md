@@ -1,5 +1,7 @@
 # Inertia Phoenix
 
+![Maintained by Devato](https://devato.com)
+
 ![Tests](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
 ![Coverage](https://img.shields.io/coveralls/github/devato/inertia_phoenix/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2aafaf190f434aca97c9734ae2395bcc)](https://app.codacy.com/gh/devato/inertia_phoenix?utm_source=github.com&utm_medium=referral&utm_content=devato/inertia_phoenix&utm_campaign=Badge_Grade_Dashboard)
