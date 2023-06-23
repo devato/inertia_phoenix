@@ -92,8 +92,8 @@ defmodule InertiaPhoenix.PageControllerTest do
     conn =
       conn
       |> Plug.Test.init_test_session(%{})
-      |> Phoenix.Controller.fetch_flash()
-      |> Phoenix.Controller.put_flash(:error, "something went wrong")
+      |> fetch_flash()
+      |> put_flash(:error, "something went wrong")
       |> put_req_header("x-inertia", "true")
       |> put_req_header("x-inertia-version", "123")
       |> get("/")
