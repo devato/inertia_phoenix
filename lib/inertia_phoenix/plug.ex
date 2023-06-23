@@ -54,7 +54,7 @@ defmodule InertiaPhoenix.Plug do
     end)
   end
 
-  defp maybe_forward_flash(%{private: %{phoenix_flash: flash}} = conn)
+  defp maybe_forward_flash(%{assigns: %{flash: flash}} = conn)
        when is_map(flash) and map_size(flash) > 0 do
     put_session(conn, "inertia_flash", flash)
   end
@@ -69,7 +69,7 @@ defmodule InertiaPhoenix.Plug do
       flash ->
         conn
         |> delete_session(:inertia_flash)
-        |> put_private(:phoenix_flash, Map.merge(conn.private.phoenix_flash, flash))
+        |> assign(:flash, Map.merge(conn.assigns.flash, flash))
     end
   end
 end

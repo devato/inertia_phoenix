@@ -8,7 +8,7 @@ defmodule InertiaPhoenix.MixProject do
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
-      compilers: [:phoenix] ++ Mix.compilers(),
+      compilers: Mix.compilers(),
       deps: deps(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
@@ -33,13 +33,14 @@ defmodule InertiaPhoenix.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, "~> 1.3.0 or ~> 1.4.0 or ~> 1.5.3"},
-      {:phoenix_html, ">= 2.0.0 and <= 3.0.0"},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_html, "~> 3.3"},
+      {:phoenix_live_view, "~> 0.19"},
       {:plug, ">= 1.5.0 and < 2.0.0", optional: true},
       {:credo, "~> 1.5.0", only: [:dev, :test]},
       # Credo requires jason to exist also in :dev
       {:jason, "~> 1.0", only: [:dev, :test]},
-      {:ex_doc, "~> 0.23.0", only: :dev},
+      {:ex_doc, "~> 0.29.4", only: :dev},
       {:plug_cowboy, "~> 2.1", only: [:test]},
       {:excoveralls, "~> 0.10", only: :test},
       {:doctor, "~> 0.17.0"}

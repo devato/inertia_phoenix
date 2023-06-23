@@ -84,20 +84,22 @@ defmodule InertiaPhoenix.PageControllerTest do
       |> put_req_header("x-inertia-version", "123")
       |> get("/")
 
-    assert get_flash(conn) == %{}
-    assert html = html_response(conn, 409)
+    assert conn.assigns.flash == %{}
+    assert html_response(conn, 409)
   end
 
   test "GET / x-inertia-version mismatch forwards flash", %{conn: conn} do
     conn =
       conn
-      |> Plug.Test.init_test_session(%{"phoenix_flash" => %{error: "something went wrong"}})
+      |> Plug.Test.init_test_session(%{})
+      |> Phoenix.Controller.fetch_flash()
+      |> Phoenix.Controller.put_flash(:error, "something went wrong")
       |> put_req_header("x-inertia", "true")
       |> put_req_header("x-inertia-version", "123")
       |> get("/")
 
-    assert get_flash(conn) == %{error: "something went wrong"}
-    assert html = html_response(conn, 409)
+    assert conn.assigns.flash == %{"error" => "something went wrong"}
+    assert html_response(conn, 409)
 
     conn =
       conn
@@ -106,8 +108,8 @@ defmodule InertiaPhoenix.PageControllerTest do
       |> put_req_header("x-inertia", "false")
       |> get("/")
 
-    assert get_flash(conn) == %{error: "something went wrong"}
-    assert html = html_response(conn, 200)
+    assert conn.assigns.flash == %{"error" => "something went wrong"}
+    assert html_response(conn, 200)
   end
 
   test "PUT / with 301", %{conn: conn} do
@@ -118,7 +120,7 @@ defmodule InertiaPhoenix.PageControllerTest do
       |> put_status(301)
       |> put("/")
 
-    assert json = json_response(conn, 303)
+    assert json_response(conn, 303)
   end
 
   test "GET / with x-inertia-partial-data", %{conn: conn} do
