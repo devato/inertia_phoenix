@@ -28,7 +28,7 @@ defmodule InertiaPhoenix.Controller do
 
     conn
     |> Controller.put_view(InertiaPhoenix.View)
-    |> Controller.put_layout(inertia_layout())
+    |> Controller.put_layout(html: {InertiaPhoenix.View, :inertia})
     |> put_csrf_cookie
     |> Controller.render("inertia.html", assigns)
   end
@@ -39,7 +39,7 @@ defmodule InertiaPhoenix.Controller do
     |> merge_shared_props(conn)
     |> lazy_load()
     |> assign_component(component)
-    |> assign_flash(Controller.get_flash(conn))
+    |> assign_flash(Map.get(conn.assigns, :flash, %{}))
   end
 
   defp page_map(conn, assigns) do

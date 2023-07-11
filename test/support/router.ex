@@ -6,7 +6,7 @@ defmodule InertiaPhoenix.TestWeb.Router do
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
-    plug(:put_layout, {InertiaPhoenix.TestWeb.LayoutView, :app})
+    plug(:put_root_layout, {InertiaPhoenix.TestWeb.Layouts, :root})
     plug(InertiaPhoenix.Plug)
   end
 
