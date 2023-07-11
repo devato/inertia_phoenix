@@ -15,16 +15,12 @@ jobs:
       MIX_ENV: test
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-    strategy:
-      matrix:
-        otp: ['24.3', '25.3']
-        elixir: ['1.14.5']
     steps:
       - uses: actions/checkout@v3
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          otp-version: '25.3'
+          elixir-version: '1.14.5'
       - run: mix deps.get
       - run: mix credo --strict
       - run: mix coveralls.github
