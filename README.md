@@ -1,13 +1,13 @@
 # Inertia Phoenix
 
-[Maintained by Devato](https://devato.com)
+Maintained by [Devato](https://devato.com)
 
 ![Tests](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
 ![Coverage](https://img.shields.io/coveralls/github/devato/inertia_phoenix/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2aafaf190f434aca97c9734ae2395bcc)](https://app.codacy.com/gh/devato/inertia_phoenix?utm_source=github.com&utm_medium=referral&utm_content=devato/inertia_phoenix&utm_campaign=Badge_Grade_Dashboard)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
 
-Inertiajs Adapter for Elixir Phoenix 1.4 and 1.5
+Inertiajs Adapter for Elixir Phoenix
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -37,7 +37,7 @@ Getting started with Inertia.js in a few steps.
 
 Add to mix.exs:
 ```elixir
-{:inertia_phoenix, "~> 0.3.0"}
+{:inertia_phoenix, "~> 0.4.0"}
 ```
 
 Add Plug to `WEB_PATH/router.ex`
@@ -181,7 +181,7 @@ axios.defaults.xsrfHeaderName = "x-csrf-token";
 
 # Example Apps
 
-- React Example: https://github.com/devato/pingcrm (WIP)
+- N/A
 
 # Contributing
 
