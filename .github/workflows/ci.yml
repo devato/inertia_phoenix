@@ -17,8 +17,8 @@ jobs:
       COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
     strategy:
       matrix:
-        otp: ['20.3', '21.3', '22.2']
-        elixir: ['1.8.2', '1.9.4']
+        otp: ['24.3', '25.3']
+        elixir: ['1.14.5', '1.15.2']
     steps:
       - uses: actions/checkout@v3
       - uses: erlef/setup-beam@v1
