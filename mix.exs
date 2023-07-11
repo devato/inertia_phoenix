@@ -42,7 +42,7 @@ defmodule InertiaPhoenix.MixProject do
       {:jason, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.29.4", only: :dev},
       {:plug_cowboy, "~> 2.1", only: [:test]},
-      {:excoveralls, "~> 0.10", only: :test},
+      {:excoveralls, "~> 0.16", only: :test},
       {:doctor, "~> 0.17.0"}
     ]
   end
