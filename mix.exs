@@ -5,7 +5,7 @@ defmodule InertiaPhoenix.MixProject do
     [
       app: :inertia_phoenix,
       version: "0.4.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.11",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       compilers: Mix.compilers(),
@@ -37,12 +37,12 @@ defmodule InertiaPhoenix.MixProject do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "~> 0.19"},
       {:plug, ">= 1.5.0 and < 2.0.0", optional: true},
-      {:credo, "~> 1.5.0", only: [:dev, :test]},
+      {:credo, "~> 1.7", only: [:dev, :test]},
       # Credo requires jason to exist also in :dev
       {:jason, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.29.4", only: :dev},
       {:plug_cowboy, "~> 2.1", only: [:test]},
-      {:excoveralls, "~> 0.10", only: :test},
+      {:excoveralls, "~> 0.16", only: :test},
       {:doctor, "~> 0.17.0"}
     ]
   end

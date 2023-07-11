@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
   pull_request:
-    branches: [develop]
+    branches: [main]
     types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
@@ -15,17 +15,14 @@ jobs:
       MIX_ENV: test
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-    strategy:
-      matrix:
-        otp: ['20.3', '21.3', '22.2']
-        elixir: ['1.8.2', '1.9.4']
     steps:
       - uses: actions/checkout@v3
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          otp-version: '25.3'
+          elixir-version: '1.14.5'
       - run: mix deps.get
+      - run: mix compile
       - run: mix credo --strict
       - run: mix coveralls.github
       - run: mix test
