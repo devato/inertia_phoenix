@@ -1,25 +1,31 @@
 name: CI
 
-on: push
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+    types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: OTP ${{matrix.otp}} / Elixir ${{matrix.elixir}}
-    strategy:
-      matrix:
-        otp: [21.3.8.13, 22.3.3]
-        elixir: [1.9.4, 1.10.3]
     env:
       MIX_ENV: test
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+    strategy:
+      matrix:
+        otp: ['20.3', '21.3', '22.2']
+        elixir: ['1.8.2', '1.9.4']
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-elixir@v1.0.0
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
         with:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
       - run: mix deps.get
       - run: mix credo --strict
       - run: mix coveralls.github
+      - run: mix test
