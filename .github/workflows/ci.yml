@@ -1,6 +1,11 @@
 name: CI
 
-on: push
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+    types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
   test:
