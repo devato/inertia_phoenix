@@ -2,7 +2,7 @@
 
 Maintained by [Devato](https://devato.com)
 
-![Tests](https://img.shields.io/github/workflow/status/devato/inertia_phoenix/CI)
+[![CI](https://github.com/devato/inertia_phoenix/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/devato/inertia_phoenix/actions/workflows/ci.yml)
 ![Coverage](https://img.shields.io/coveralls/github/devato/inertia_phoenix/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2aafaf190f434aca97c9734ae2395bcc)](https://app.codacy.com/gh/devato/inertia_phoenix?utm_source=github.com&utm_medium=referral&utm_content=devato/inertia_phoenix&utm_campaign=Badge_Grade_Dashboard)
 [![Hex.pm](https://img.shields.io/hexpm/v/inertia_phoenix)](https://hex.pm/packages/inertia_phoenix)
