@@ -37,7 +37,7 @@ defmodule InertiaPhoenix.MixProject do
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "~> 0.19"},
       {:plug, ">= 1.5.0 and < 2.0.0", optional: true},
-      {:credo, "~> 1.5.0", only: [:dev, :test]},
+      {:credo, "~> 1.7", only: [:dev, :test]},
       # Credo requires jason to exist also in :dev
       {:jason, "~> 1.0", only: [:dev, :test]},
       {:ex_doc, "~> 0.29.4", only: :dev},
