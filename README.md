@@ -58,14 +58,29 @@ Import render_inertia `lib/active_web.ex`
   end
 ```
 
+If you want to use SSR add `InertiaPhoenix.ViewHelper` to `lib/<your app>_web.ex`
+```elixir
+  defp view_helpers do
+    quote do
+      ...
+
+      import InertiaPhoenix.ViewHelper
+
+      ...
+    end
+  end
+```
+
 ## Configuration
 
 Add to `config/config.exs`
 
 ```elixir
 config :inertia_phoenix,
-  assets_version: 1,          # default 1
-  inertia_layout: "app.html"  # default app.html
+  assets_version: 1,                 # default 1
+  inertia_layout: "app.html",        # default app.html
+  ssr_enabled: false,                # default false
+  ssr_url: "http://127.0.0.1:13714"  # default http://127.0.0.1:13714
 ```
 
 - Asset Versioning Docs: https://inertiajs.com/asset-versioning
@@ -96,6 +111,8 @@ An example layout:
 <html lang="en">
   <head>
     ...
+    <!-- add this when using SSR: -->
+    <%= inertia_head(@conn) %>
   </head>
   <body>
     <%= @inner_content %>

@@ -1,12 +1,14 @@
 defmodule InertiaPhoenix.Controller do
   @moduledoc false
   import InertiaPhoenix
+  require Logger
 
   import Plug.Conn,
     only: [
       get_req_header: 2,
       put_resp_header: 3,
-      put_resp_cookie: 4
+      put_resp_cookie: 4,
+      assign: 3
     ]
 
   alias Phoenix.Controller
@@ -26,11 +28,40 @@ defmodule InertiaPhoenix.Controller do
   def render_inertia(conn, component, assigns) do
     assigns = build_assigns(conn, assigns, component)
 
+    %{"body" => body, "head" => raw_head} = fetch_ssr(conn, assigns)
+    assigns = Keyword.put(assigns, :inertia_ssr_body, body)
+    head = Phoenix.HTML.raw(Enum.join(raw_head, "\n"))
+
     conn
     |> Controller.put_view(InertiaPhoenix.View)
     |> Controller.put_layout(html: {InertiaPhoenix.View, :inertia})
     |> put_csrf_cookie
+    |> assign(:inertia_ssr_head, head)
     |> Controller.render("inertia.html", assigns)
+  end
+
+  defp fetch_ssr(conn, assigns) do
+    default = %{
+      "head" => [],
+      "body" => ""
+    }
+
+    if inertia_ssr_enabled() do
+      case HTTPoison.post(inertia_ssr_url() <> "/render", Jason.encode!(page_map(conn, assigns)), [{"Content-Type", "application/json"}]) do
+        {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+          if body == "" do
+            Logger.warn("Inertia SSR returned empty response, check SSR server logs")
+            default
+          else
+            Jason.decode!(body)
+          end
+        response ->
+          Logger.warn("Inertia SSR request failed: #{inspect(response)}")
+          default
+      end
+    else
+      default
+    end
   end
 
   defp build_assigns(conn, assigns, component) do
