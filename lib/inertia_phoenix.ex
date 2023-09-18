@@ -22,6 +22,14 @@ defmodule InertiaPhoenix do
     |> to_string
   end
 
+  def inertia_ssr_enabled do
+    Application.get_env(:inertia_phoenix, :ssr_enabled, false)
+  end
+
+  def inertia_ssr_url do
+    Application.get_env(:inertia_phoenix, :ssr_url, "http://127.0.0.1:13714")
+  end
+
   def path_with_params(%{request_path: request_path, query_string: ""}), do: request_path
 
   def path_with_params(%{request_path: request_path, query_string: query_string}) do
